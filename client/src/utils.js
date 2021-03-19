@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = `https://pokeapi.co/api/v2/pokemon`;
+const URL = `http://localhost:3001/api/pokemon`;
 
 const fetchPokemonData = async (data, setData) => {
 	console.log("trying to fetch...");
@@ -11,14 +11,7 @@ const fetchPokemonData = async (data, setData) => {
 			url: `${URL}/pikachu`,
 			headers: { "Content-Type": "application/json" },
 		});
-		const neededData = {
-			id: response.data.id,
-			name: response.data.name,
-			height: response.data.height,
-			weight: response.data.weight,
-			types: response.data.types.map((type) => type.type.name),
-		};
-		setData({ pokemonData: neededData, isFetching: false });
+		setData({ pokemonData: response.data, isFetching: false });
 	} catch (e) {
 		console.log(e);
 		setData({ pokemonData: data.pokemonData, isFetching: false });
