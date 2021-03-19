@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pokemon({ pokemonData }) {
+function Pokemon({ pokemonData, isFetching }) {
 	const pokemonDataDivs = [];
 	for (const key in pokemonData) {
 		pokemonDataDivs.push(

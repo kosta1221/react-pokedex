@@ -1,24 +1,31 @@
 import "./styles/App.css";
 import Pokemon from "./components/Pokemon";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import fetchPokemonData from "./utils.js";
+
+//types.map((type) => type.type.name)
 
 function App() {
-	const [pokemonData, setPokemonData] = useState({
-		id: 12,
-		name: "butterfree",
-		base_experience: 178,
-		height: 11,
-		is_default: true,
-		order: 16,
-		weight: 320,
+	const mockPokemonData = { id: null, name: "", height: null, weight: null, types: [] };
+	const [data, setData] = useState({
+		pokemonData: mockPokemonData,
+		isFetching: false,
 	});
+
+	useEffect(() => {
+		fetchPokemonData(data, setData);
+	}, []);
 
 	return (
 		<div className="App">
 			<h1>Pokedex</h1>
 			<input id="search-input" />
 			<button id="search-button">Search Pokemon!</button>
-			<Pokemon pokemonData={pokemonData} setPokemonData={setPokemonData} />
+			<Pokemon
+				pokemonData={data.pokemonData}
+				isFetching={data.isFetching}
+				setPokemonData={setData}
+			/>
 		</div>
 	);
 }
