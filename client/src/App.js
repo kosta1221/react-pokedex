@@ -2,6 +2,7 @@ import "./styles/App.css";
 import Pokemon from "./components/Pokemon";
 import React, { useState, useEffect } from "react";
 import { fetchPokemonData, fetchPokemonNames } from "./utils.js";
+import Suggestions from "./components/Suggestions";
 
 //types.map((type) => type.type.name)
 
@@ -18,7 +19,7 @@ function App() {
 			},
 		},
 	};
-
+	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [allPokemonNames, setAllPokemonNames] = useState([]);
 	const [inputValue, setInputValue] = useState("pikachu");
 	const [searchButtonClickCount, setSearchButtonClickCount] = useState(0);
@@ -36,12 +37,11 @@ function App() {
 	}, [searchButtonClickCount]);
 
 	useEffect(() => {
-		// fetchPokemonData(data, setData, inputValue);
 		console.log(inputValue);
 		const searchSuggestions = allPokemonNames.filter((pokemonName) =>
 			pokemonName.includes(inputValue)
 		);
-		console.log(searchSuggestions);
+		setSearchSuggestions(searchSuggestions);
 	}, [inputValue]);
 
 	const handleInputChange = (event) => {
@@ -52,6 +52,7 @@ function App() {
 		<div className="App">
 			<h1>Pokedex</h1>
 			<input id="search-input" onChange={handleInputChange} />
+			<Suggestions suggestions={searchSuggestions} />
 			<button
 				id="search-button"
 				onClick={() => setSearchButtonClickCount(searchButtonClickCount + 1)}
