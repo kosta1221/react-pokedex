@@ -4,8 +4,6 @@ import React, { useState, useEffect } from "react";
 import { fetchPokemonData, fetchPokemonNames } from "./utils.js";
 import Suggestions from "./components/Suggestions";
 
-//types.map((type) => type.type.name)
-
 function App() {
 	const mockPokemonData = {
 		id: null,
@@ -33,9 +31,7 @@ function App() {
 
 		/* Event listener for closing suggestion list when clicking anywhere */
 		window.addEventListener("click", function (event) {
-			if (!event.target.classList.contains("suggestion")) {
-				document.querySelector(".suggestions").style.display = "none";
-			}
+			document.querySelector(".suggestions").style.display = "none";
 		});
 	}, []);
 
@@ -61,8 +57,17 @@ function App() {
 		<div className="App">
 			<h1>Pokedex</h1>
 			<div className="autocomplete">
-				<input id="search-input" onChange={handleInputChange} placeholder="pikachu..." />
-				<Suggestions id="search-suggestions" suggestions={searchSuggestions} />
+				<input
+					id="search-input"
+					onChange={handleInputChange}
+					placeholder="pikachu..."
+					value={inputValue}
+				/>
+				<Suggestions
+					id="search-suggestions"
+					suggestions={searchSuggestions}
+					setInputValue={setInputValue}
+				/>
 			</div>
 
 			<button
