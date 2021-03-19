@@ -3,6 +3,8 @@ import React from "react";
 function Pokemon({ pokemonData, isFetching }) {
 	const pokemonDataDivs = [];
 	for (const key in pokemonData) {
+		if (key === "sprites") continue;
+
 		pokemonDataDivs.push(
 			<div>
 				<span>{`${key}: `}</span>
@@ -10,7 +12,12 @@ function Pokemon({ pokemonData, isFetching }) {
 			</div>
 		);
 	}
-	return <div>{pokemonDataDivs}</div>;
+	return (
+		<div>
+			{pokemonDataDivs}
+			<img src={pokemonData.sprites["front_default"]} alt="pokemon" />
+		</div>
+	);
 }
 
 export default Pokemon;

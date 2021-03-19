@@ -6,7 +6,14 @@ import fetchPokemonData from "./utils.js";
 //types.map((type) => type.type.name)
 
 function App() {
-	const mockPokemonData = { id: null, name: "", height: null, weight: null, types: [] };
+	const mockPokemonData = {
+		id: null,
+		name: "",
+		height: null,
+		weight: null,
+		types: [],
+		sprites: {},
+	};
 	const [inputValue, setInputValue] = useState("pikachu");
 	const [searchButtonClickCount, setSearchButtonClickCount] = useState(0);
 	const [data, setData] = useState({

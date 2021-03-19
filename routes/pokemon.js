@@ -19,6 +19,7 @@ pokemon.get(`/:name`, async (req, res) => {
 			height: data.height,
 			weight: data.weight,
 			types: data.types.map((type) => type.type.name),
+			sprites: data.sprites,
 		};
 		console.log(`Pokemon route + ${req.params.name}`);
 		res.json(relevantData);
