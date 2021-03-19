@@ -12,7 +12,11 @@ function App() {
 		height: null,
 		weight: null,
 		types: [],
-		sprites: {},
+		sprites: {
+			other: {
+				dream_world: {},
+			},
+		},
 	};
 	const [inputValue, setInputValue] = useState("pikachu");
 	const [searchButtonClickCount, setSearchButtonClickCount] = useState(0);
