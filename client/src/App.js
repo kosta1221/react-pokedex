@@ -30,6 +30,11 @@ function App() {
 
 	useEffect(() => {
 		fetchPokemonNames(setAllPokemonNames, `limit=800`);
+
+		/* Event listener for closing suggestion list when clicking anywhere */
+		window.addEventListener("click", function (event) {
+			document.querySelector(".suggestions").style.display = "none";
+		});
 	}, []);
 
 	useEffect(() => {
@@ -46,13 +51,18 @@ function App() {
 
 	const handleInputChange = (event) => {
 		setInputValue(event.target.value);
+		/* If suggestions are not displayed, display them when typing in the input */
+		document.querySelector(".suggestions").style.display = "block";
 	};
 
 	return (
 		<div className="App">
 			<h1>Pokedex</h1>
-			<input id="search-input" onChange={handleInputChange} />
-			<Suggestions suggestions={searchSuggestions} />
+			<div className="autocomplete">
+				<input id="search-input" onChange={handleInputChange} placeholder="pikachu..." />
+				<Suggestions id="search-suggestions" suggestions={searchSuggestions} />
+			</div>
+
 			<button
 				id="search-button"
 				onClick={() => setSearchButtonClickCount(searchButtonClickCount + 1)}
