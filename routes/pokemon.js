@@ -6,12 +6,21 @@ const pokemon = Router();
 const POKEAPI_URL = `https://pokeapi.co/api/v2/pokemon`;
 
 pokemon.get(`/:name`, async (req, res) => {
+	let name = req.params.name;
+	if (name.includes("limit=")) {
+		name = `?${name}`;
+	}
+
 	try {
 		const { data } = await axios({
 			method: "GET",
-			url: `${POKEAPI_URL}/${req.params.name}`,
+			url: `${POKEAPI_URL}/${name}`,
 			headers: { "Content-Type": "application/json" },
 		});
+
+		if (name.includes("limit=")) {
+			return res.json(data);
+		}
 
 		const relevantData = {
 			id: data.id,
@@ -21,6 +30,7 @@ pokemon.get(`/:name`, async (req, res) => {
 			types: data.types.map((type) => type.type.name),
 			sprites: data.sprites,
 		};
+
 		console.log(`Pokemon route + ${req.params.name}`);
 		res.json(relevantData);
 	} catch (error) {
