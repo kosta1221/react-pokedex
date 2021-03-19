@@ -8,6 +8,8 @@
 	top: 100%;
 	left: 0;
 	right: 0;
+	max-height: 50vh;
+	overflow-y: scroll;
 }
 
 .suggestions div {

@@ -33,7 +33,9 @@ function App() {
 
 		/* Event listener for closing suggestion list when clicking anywhere */
 		window.addEventListener("click", function (event) {
-			document.querySelector(".suggestions").style.display = "none";
+			if (!event.target.classList.contains("suggestion")) {
+				document.querySelector(".suggestions").style.display = "none";
+			}
 		});
 	}, []);
 
