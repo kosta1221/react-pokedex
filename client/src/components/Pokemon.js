@@ -2,7 +2,6 @@ import React from "react";
 
 function Pokemon({ pokemonData, isFetching }) {
 	const pokemonDataDivs = [];
-	console.log(pokemonData.types);
 	for (const key in pokemonData) {
 		if (key === "sprites" || key === "id") continue;
 
