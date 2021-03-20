@@ -2,9 +2,24 @@ const { Router } = require("express");
 
 const collection = Router();
 
-const myCollection = [];
+let myCollection = [];
 
 collection.get("/", (req, res) => {
+	res.json(myCollection);
+});
+
+collection.delete("/:id", (req, res) => {
+	let id = Number(req.params.id);
+	console.log("id to delete " + id);
+
+	const foundPokemon = myCollection.find((pokemon) => pokemon.id === id);
+
+	if (!foundPokemon) {
+		return res.status(404).json(`pokemon to delete with id/name of: ${id} not found`);
+	}
+
+	myCollection = myCollection.filter((pokemon) => !pokemon.id === id);
+
 	res.json(myCollection);
 });
 

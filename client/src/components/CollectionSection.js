@@ -1,7 +1,6 @@
 import React from "react";
-import { catchPokemon } from "../utils";
+import { catchPokemon, fetchMyCollection, releaseFromCollection } from "../utils";
 import { useEffect } from "react";
-import { fetchMyCollection } from "../utils";
 
 function CollectionSection({ data, setData, myCollection, setMyCollection }) {
 	useEffect(() => {
@@ -17,6 +16,13 @@ function CollectionSection({ data, setData, myCollection, setMyCollection }) {
 
 	const handleViewCollection = (event) => {
 		console.log(myCollection);
+		fetchMyCollection(myCollection, setMyCollection);
+	};
+
+	const handleRelease = (event) => {
+		const pokemonId = event.target.getAttribute("pokemonid");
+		console.log(pokemonId);
+		releaseFromCollection(pokemonId, setMyCollection);
 	};
 
 	return (
@@ -31,6 +37,9 @@ function CollectionSection({ data, setData, myCollection, setMyCollection }) {
 							onMouseEnter={(event) => (event.target.src = pokemon.sprites["back_default"])}
 							onMouseLeave={(event) => (event.target.src = pokemon.sprites["front_default"])}
 						/>
+						<button pokemonid={pokemon.id} onClick={handleRelease}>
+							Release
+						</button>
 					</div>
 				))}
 			</div>

@@ -86,3 +86,21 @@ export const fetchMyCollection = async (myCollection, setMyCollection) => {
 		console.log(e);
 	}
 };
+
+export const releaseFromCollection = async (pokemonId, setMyCollection) => {
+	console.log(`trying to release pokemon id: ${pokemonId} from collection...`);
+	console.log(`${URL}/collection/${pokemonId}`);
+	try {
+		const response = await axios({
+			method: "DELETE",
+			url: `${URL}/collection/${pokemonId}`,
+			headers: { "Content-Type": "application/json" },
+		});
+
+		const fetchedCollection = response.data;
+		console.log(response.data);
+		setMyCollection([...fetchedCollection]);
+	} catch (e) {
+		console.log(e);
+	}
+};
