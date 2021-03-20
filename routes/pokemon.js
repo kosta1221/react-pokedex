@@ -3,7 +3,8 @@ const { Router } = require("express");
 const axios = require("axios");
 
 const pokemon = Router();
-const POKEAPI_URL = `https://pokeapi.co/api/v2/pokemon`;
+
+const POKEAPI_URL = `https://pokeapi.co/api/v2`;
 
 pokemon.get(`/:name`, async (req, res) => {
 	let name = req.params.name;
@@ -14,7 +15,7 @@ pokemon.get(`/:name`, async (req, res) => {
 	try {
 		const { data } = await axios({
 			method: "GET",
-			url: `${POKEAPI_URL}/${name}`,
+			url: `${POKEAPI_URL}/pokemon/${name}`,
 			headers: { "Content-Type": "application/json" },
 		});
 
