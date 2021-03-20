@@ -10,10 +10,12 @@
 	right: 0;
 	max-height: 50vh;
 	overflow-y: scroll;
+	width: 79.5%;
+	align-self: center;
 }
 
 .suggestions div {
-	padding: 10px;
+	padding: 5px;
 	cursor: pointer;
 	background-color: #fff;
 	border-bottom: 1px solid #d4d4d4;
@@ -28,4 +30,10 @@
 	/*when navigating through the items using the arrow keys:*/
 	background-color: DodgerBlue !important;
 	color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+	.suggestions div {
+		font-size: 2vmax;
+	}
 }

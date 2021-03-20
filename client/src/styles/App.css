@@ -10,10 +10,14 @@
   right: 0;
   max-height: 50vh;
   overflow-y: scroll;
+  width: 79.5%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .suggestions div {
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
@@ -28,6 +32,12 @@
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;
   color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+  .suggestions div {
+    font-size: 2vmax;
+  }
 }
 
 .grid-container {
@@ -66,28 +76,67 @@
   cursor: pointer;
 }
 
+.pokemon-section {
+  width: 50vw;
+}
+
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 2vw;
 }
 
-input {
-  border: 1px solid transparent;
+#search-input {
   background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-
-input[type="text"] {
-  background-color: #f1f1f1;
-  width: 100%;
+  width: 80%;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: 2.5vmax;
+  height: 6vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #search-button {
   background-color: DodgerBlue;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid black;
   color: #fff;
   cursor: pointer;
+  height: 6vh;
+}
+
+.big-artwork {
+  width: auto;
+  height: 20vw;
+}
+
+.pokemon-data-except-big-artwork {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pokemon-data-except-big-artwork img {
+  width: 20vw;
+  height: auto;
+}
+
+.pokemon-data-div {
+  font-size: 2vmax;
+  text-align: left;
 }
 
 .collection-section {
@@ -104,11 +153,6 @@ input[type="text"] {
           align-items: center;
 }
 
-.collection-section button {
-  width: 60%;
-  margin: 0.5vw;
-}
-
 .collection-section .my-collection {
   margin: 0 1vw;
   display: -ms-grid;
@@ -123,7 +167,32 @@ input[type="text"] {
 .collection-section .my-collection div {
   background-color: grey;
   font-size: 2vw;
+  width: 10vw;
   aspect-ratio: 1 / 1;
+}
+
+.collection-section .my-collection div img {
+  height: auto;
+  width: 10vw;
+}
+
+.collection-section .my-collection div img:hover {
+  cursor: pointer;
+}
+
+.collection-section .my-collection div button {
+  font-size: 1vmax;
+  text-align: center;
+}
+
+.collection-section .my-collection div button:hover {
+  cursor: pointer;
+}
+
+.collection-section > button {
+  width: 60%;
+  margin: 0.5vw;
+  font-size: 2.5vmax;
 }
 
 .App {
@@ -145,6 +214,6 @@ input[type="text"] {
 }
 
 body {
-  font: 16px Arial;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /*# sourceMappingURL=App.css.map */

@@ -1,23 +1,51 @@
+.pokemon-section {
+	width: 50vw;
+}
+
 .autocomplete {
 	/*the container must be positioned relative:*/
 	position: relative;
-	display: inline-block;
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 2vw;
 }
 
-input {
-	border: 1px solid transparent;
+#search-input {
 	background-color: #f1f1f1;
-	padding: 10px;
-	font-size: 16px;
-}
-
-input[type="text"] {
-	background-color: #f1f1f1;
-	width: 100%;
+	width: 80%;
+	border: 1px solid black;
+	padding: 5px;
+	font-size: 2.5vmax;
+	height: 6vh;
+	box-sizing: border-box;
 }
 
 #search-button {
 	background-color: DodgerBlue;
+	box-sizing: border-box;
+	border: 1px solid black;
 	color: #fff;
 	cursor: pointer;
+	height: 6vh;
+}
+
+.big-artwork {
+	width: auto;
+	height: 20vw;
+}
+
+.pokemon-data-except-big-artwork {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	img {
+		width: 20vw;
+		height: auto;
+	}
+}
+
+.pokemon-data-div {
+	font-size: 2vmax;
+	text-align: left;
 }

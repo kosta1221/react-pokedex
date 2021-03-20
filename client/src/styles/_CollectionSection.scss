@@ -4,11 +4,6 @@
 	flex-direction: column;
 	align-items: center;
 
-	button {
-		width: 60%;
-		margin: 0.5vw;
-	}
-
 	.my-collection {
 		margin: 0 1vw;
 		display: grid;
@@ -20,7 +15,31 @@
 		div {
 			background-color: grey;
 			font-size: 2vw;
+			width: 10vw;
 			aspect-ratio: 1 / 1;
+
+			img {
+				height: auto;
+				width: 10vw;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+			button {
+				font-size: 1vmax;
+				text-align: center;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
 		}
 	}
+}
+
+.collection-section > button {
+	width: 60%;
+	margin: 0.5vw;
+	font-size: 2.5vmax;
 }

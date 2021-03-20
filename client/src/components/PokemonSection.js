@@ -24,6 +24,14 @@ function PokemonSection({
 					placeholder="pikachu..."
 					value={inputValue}
 				/>
+
+				<button
+					id="search-button"
+					onClick={() => setSearchButtonClickCount(searchButtonClickCount + 1)}
+				>
+					🔍
+				</button>
+
 				<Suggestions
 					id="search-suggestions"
 					suggestions={searchSuggestions}
@@ -31,12 +39,6 @@ function PokemonSection({
 				/>
 			</div>
 
-			<button
-				id="search-button"
-				onClick={() => setSearchButtonClickCount(searchButtonClickCount + 1)}
-			>
-				Search Pokemon!
-			</button>
 			<Pokemon
 				pokemonData={data.pokemonData}
 				isFetching={data.isFetching}

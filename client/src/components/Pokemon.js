@@ -14,7 +14,7 @@ function Pokemon({ pokemonData, setPokemonsOfType, isFetching }) {
 
 		if (Array.isArray(pokemonData[key]) && key === "types") {
 			pokemonDataDivs.push(
-				<div key={key}>
+				<div key={key} className="pokemon-data-div">
 					<span>{`${key}: `}</span>
 					{pokemonData[key].map((type, i) => {
 						if (pokemonData[key].length - 1 === i) {
@@ -33,7 +33,7 @@ function Pokemon({ pokemonData, setPokemonsOfType, isFetching }) {
 		}
 
 		pokemonDataDivs.push(
-			<div key={key}>
+			<div key={key} className="pokemon-data-div">
 				<span>{`${key}: `}</span>
 				<span>{pokemonData[key]}</span>
 			</div>
@@ -41,14 +41,22 @@ function Pokemon({ pokemonData, setPokemonsOfType, isFetching }) {
 	}
 	return (
 		<div>
-			{pokemonDataDivs}
+			<div className="pokemon-data-except-big-artwork">
+				<div>{pokemonDataDivs}</div>
+
+				<img
+					src={pokemonData.sprites["front_default"]}
+					alt="pokemon"
+					onMouseEnter={(event) => (event.target.src = pokemonData.sprites["back_default"])}
+					onMouseLeave={(event) => (event.target.src = pokemonData.sprites["front_default"])}
+				/>
+			</div>
+
 			<img
-				src={pokemonData.sprites["front_default"]}
-				alt="pokemon"
-				onMouseEnter={(event) => (event.target.src = pokemonData.sprites["back_default"])}
-				onMouseLeave={(event) => (event.target.src = pokemonData.sprites["front_default"])}
+				className="big-artwork"
+				src={pokemonData.sprites.other.dream_world["front_default"]}
+				alt="pokemon-banner"
 			/>
-			<img src={pokemonData.sprites.other.dream_world["front_default"]} alt="pokemon-banner" />
 		</div>
 	);
 }
