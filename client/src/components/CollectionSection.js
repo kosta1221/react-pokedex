@@ -29,22 +29,26 @@ function CollectionSection({ data, setData, myCollection, setMyCollection, setEr
 		<div className="collection-section">
 			<div className="my-collection">
 				{myCollection.map((pokemon, i) => (
-					<div key={`collection-pokemon-${i}`}>
-						<span>{pokemon.name}</span>
+					<div className="card text-white bg-primary" key={`collection-pokemon-${i}`}>
+						<span className="card-header">{pokemon.name}</span>
 						<img
 							src={pokemon.sprites["front_default"]}
 							alt="pokemon"
 							onMouseEnter={(event) => (event.target.src = pokemon.sprites["back_default"])}
 							onMouseLeave={(event) => (event.target.src = pokemon.sprites["front_default"])}
 						/>
-						<button pokemonid={pokemon.id} onClick={handleRelease}>
+						<button className="btn btn-warning" pokemonid={pokemon.id} onClick={handleRelease}>
 							Release
 						</button>
 					</div>
 				))}
 			</div>
-			<button onClick={handleViewCollection}>View My Collection</button>
-			<button onClick={handleCatch}>Catch</button>
+			<button className="btn btn-primary" onClick={handleViewCollection}>
+				View My Collection
+			</button>
+			<button className="btn btn-primary" onClick={handleCatch}>
+				Catch
+			</button>
 		</div>
 	);
 }

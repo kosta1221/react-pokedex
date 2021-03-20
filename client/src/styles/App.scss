@@ -6,6 +6,8 @@
 .App {
 	text-align: center;
 	box-sizing: border-box;
+	min-height: 100vh;
+	background: linear-gradient(125deg, rgba(84, 169, 213, 1) 0%, rgba(12, 189, 112, 1) 85%);
 }
 
 .pokemon-and-collection {

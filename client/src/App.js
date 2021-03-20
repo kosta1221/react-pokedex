@@ -46,9 +46,10 @@ function App() {
 	useEffect(() => {
 		fetchPokemonNames(setAllPokemonNames, `limit=800`, setErrorMessage);
 
-		/* Event listener for closing suggestion list when clicking anywhere */
+		/* Event listener for closing suggestion list when clicking anywhere, and resetting error message */
 		window.addEventListener("click", function (event) {
 			document.querySelector(".suggestions").style.display = "none";
+			setErrorMessage("");
 		});
 	}, []);
 
