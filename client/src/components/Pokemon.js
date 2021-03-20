@@ -1,17 +1,27 @@
 import React from "react";
 
 function Pokemon({ pokemonData, isFetching }) {
+	const handleTypeClick = (event) => {
+		console.log(event.target);
+	};
+
 	const pokemonDataDivs = [];
 	for (const key in pokemonData) {
 		if (key === "sprites" || key === "id") continue;
 
-		if (Array.isArray(pokemonData[key])) {
+		if (Array.isArray(pokemonData[key]) && key === "types") {
 			pokemonDataDivs.push(
 				<div>
 					<span>{`${key}: `}</span>
-					<span>{pokemonData[key].join(", ")}</span>
+					{pokemonData[key].map((type, i) => {
+						if (pokemonData[key].length - 1 === i) {
+							return <span key={`type-${i}`} onClick={handleTypeClick}>{`${type}`}</span>;
+						}
+						return <span key={`type-${i}`} onClick={handleTypeClick}>{`${type}, `}</span>;
+					})}
 				</div>
 			);
+
 			continue;
 		}
 
