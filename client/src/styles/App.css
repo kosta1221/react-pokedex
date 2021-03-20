@@ -1,32 +1,66 @@
+.suggestions {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.suggestions div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.suggestions div:hover {
+  /*when hovering over an item:*/
+  background-color: #e9e9e9;
+}
+
+.suggestion-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
 .App {
-	text-align: center;
-	box-sizing: border-box;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
-	font: 16px Arial;
+  font: 16px Arial;
 }
 
 .autocomplete {
-	/*the container must be positioned relative:*/
-	position: relative;
-	display: inline-block;
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
 }
 
 input {
-	border: 1px solid transparent;
-	background-color: #f1f1f1;
-	padding: 10px;
-	font-size: 16px;
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
 }
 
 input[type="text"] {
-	background-color: #f1f1f1;
-	width: 100%;
+  background-color: #f1f1f1;
+  width: 100%;
 }
 
 #search-button {
-	background-color: DodgerBlue;
-	color: #fff;
-	cursor: pointer;
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
 }
+/*# sourceMappingURL=App.css.map */
