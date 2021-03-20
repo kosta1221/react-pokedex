@@ -1,9 +1,10 @@
 import "./styles/App.css";
-import Pokemon from "./components/Pokemon";
+
 import React, { useState, useEffect } from "react";
 import { fetchPokemonData, fetchPokemonNames } from "./utils.js";
-import Suggestions from "./components/Suggestions";
+
 import PokemonsOfTypeGrid from "./components/PokemonsOfTypeGrid";
+import PokemonSection from "./components/PokemonSection";
 
 function App() {
 	const mockPokemonData = {
@@ -57,34 +58,19 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Pokedex</h1>
-			<div className="autocomplete">
-				<input
-					id="search-input"
-					onChange={handleInputChange}
-					placeholder="pikachu..."
-					value={inputValue}
-				/>
-				<Suggestions
-					id="search-suggestions"
-					suggestions={searchSuggestions}
-					setInputValue={setInputValue}
-				/>
-			</div>
-
-			<button
-				id="search-button"
-				onClick={() => setSearchButtonClickCount(searchButtonClickCount + 1)}
-			>
-				Search Pokemon!
-			</button>
-			<Pokemon
-				pokemonData={data.pokemonData}
-				isFetching={data.isFetching}
-				setPokemonData={setData}
+			<PokemonSection
+				data={data}
+				setData={setData}
+				inputValue={inputValue}
+				handleInputChange={handleInputChange}
+				searchSuggestions={searchSuggestions}
+				searchButtonClickCount={searchButtonClickCount}
+				setSearchButtonClickCount={setSearchButtonClickCount}
+				setInputValue={setInputValue}
 				pokemonsOfType={pokemonsOfType}
 				setPokemonsOfType={setPokemonsOfType}
 			/>
+
 			<PokemonsOfTypeGrid pokemonsOfType={pokemonsOfType} />
 		</div>
 	);

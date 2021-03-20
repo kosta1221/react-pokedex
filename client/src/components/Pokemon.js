@@ -14,7 +14,7 @@ function Pokemon({ pokemonData, setPokemonsOfType, isFetching }) {
 
 		if (Array.isArray(pokemonData[key]) && key === "types") {
 			pokemonDataDivs.push(
-				<div>
+				<div key={key}>
 					<span>{`${key}: `}</span>
 					{pokemonData[key].map((type, i) => {
 						if (pokemonData[key].length - 1 === i) {
@@ -33,7 +33,7 @@ function Pokemon({ pokemonData, setPokemonsOfType, isFetching }) {
 		}
 
 		pokemonDataDivs.push(
-			<div>
+			<div key={key}>
 				<span>{`${key}: `}</span>
 				<span>{pokemonData[key]}</span>
 			</div>
