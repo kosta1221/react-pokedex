@@ -18,7 +18,9 @@ collection.delete("/:id", (req, res) => {
 		return res.status(404).json(`pokemon to delete with id/name of: ${id} not found`);
 	}
 
-	myCollection = myCollection.filter((pokemon) => !pokemon.id === id);
+	myCollection = myCollection.filter((pokemon) => {
+		return pokemon.id !== id;
+	});
 
 	res.json(myCollection);
 });
