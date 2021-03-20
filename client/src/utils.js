@@ -51,3 +51,20 @@ export const fetchPokemonTypes = async (type, setPokemonsOfType) => {
 		console.log(e);
 	}
 };
+
+export const catchPokemon = async (pokemon) => {
+	console.log(`trying to catch(post) ${pokemon.name}...`);
+	console.log(`${URL}/collection/catch`);
+	try {
+		const response = await axios({
+			method: "POST",
+			url: `${URL}/collection/catch`,
+			headers: { "Content-Type": "application/json" },
+			data: pokemon,
+		});
+		console.log(response.data[response.data.length - 1].name);
+		console.log(response.data);
+	} catch (e) {
+		console.log(e);
+	}
+};

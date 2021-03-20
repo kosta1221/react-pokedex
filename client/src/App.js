@@ -29,6 +29,7 @@ function App() {
 		isFetching: false,
 	});
 	const [pokemonsOfType, setPokemonsOfType] = useState([]);
+	const [myCollection, setMyCollection] = useState([]);
 
 	useEffect(() => {
 		fetchPokemonNames(setAllPokemonNames, `limit=800`);
@@ -72,7 +73,12 @@ function App() {
 					pokemonsOfType={pokemonsOfType}
 					setPokemonsOfType={setPokemonsOfType}
 				/>
-				<CollectionSection />
+				<CollectionSection
+					data={data}
+					setData={setData}
+					myCollection={myCollection}
+					setMyCollection={setMyCollection}
+				/>
 			</div>
 
 			<PokemonsOfTypeGrid pokemonsOfType={pokemonsOfType} />

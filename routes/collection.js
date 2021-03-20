@@ -20,6 +20,7 @@ collection.post("/catch", (req, res) => {
 	const body = req.body;
 
 	if (!body.id || !body.name || !body.height || !body.weight || !body.types || !body.sprites) {
+		console.log("bad request to catch!");
 		return res.status(400).json(`Received bad pokemon body!`);
 	}
 
@@ -33,7 +34,7 @@ collection.post("/catch", (req, res) => {
 	};
 
 	myCollection.push(pokemon);
-	res.json(pokemon);
+	res.json(myCollection);
 });
 
 module.exports = { collection, myCollection };
