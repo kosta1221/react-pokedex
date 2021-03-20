@@ -1,8 +1,11 @@
 import React from "react";
+import { fetchPokemonTypes } from "../utils.js";
 
 function Pokemon({ pokemonData, isFetching }) {
 	const handleTypeClick = (event) => {
-		console.log(event.target);
+		const type = event.target.getAttribute("type");
+		console.log(type);
+		fetchPokemonTypes(type);
 	};
 
 	const pokemonDataDivs = [];
@@ -15,9 +18,13 @@ function Pokemon({ pokemonData, isFetching }) {
 					<span>{`${key}: `}</span>
 					{pokemonData[key].map((type, i) => {
 						if (pokemonData[key].length - 1 === i) {
-							return <span key={`type-${i}`} onClick={handleTypeClick}>{`${type}`}</span>;
+							return (
+								<span key={`type-${i}`} type={type} onClick={handleTypeClick}>{`${type}`}</span>
+							);
 						}
-						return <span key={`type-${i}`} onClick={handleTypeClick}>{`${type}, `}</span>;
+						return (
+							<span key={`type-${i}`} type={type} onClick={handleTypeClick}>{`${type}, `}</span>
+						);
 					})}
 				</div>
 			);
