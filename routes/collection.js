@@ -41,6 +41,15 @@ collection.post("/catch", (req, res) => {
 		return res.status(400).json(`Received bad pokemon body!`);
 	}
 
+	const pokemonAlreadyExists = myCollection.find((pokemon) => pokemon.id === body.id);
+
+	if (pokemonAlreadyExists) {
+		console.log(`bad request to catch! Pokemon ${body.name} already exists in collection`);
+		return res
+			.status(400)
+			.json(`bad request to catch! Pokemon ${body.name} already exists in collection`);
+	}
+
 	const pokemon = {
 		id: body.id,
 		name: body.name,

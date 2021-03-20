@@ -7,11 +7,19 @@ const morgan = require("morgan");
 app.use(cors());
 app.use(express.json());
 
-morgan.token("person", (req) => {
-	return JSON.stringify(req.body);
+morgan.token("reqbody", (req) => {
+	const newObject = {};
+	for (const key in req.body) {
+		if (key === "sprites") {
+			newObject.sprites = "Too many to print...";
+			continue;
+		}
+		newObject[key] = req.body[key];
+	}
+	return JSON.stringify(newObject);
 });
 
-app.use(morgan(":method :url :status :res[content-length] - :response-time ms :person"));
+app.use(morgan(":method :url :status :res[content-length] - :response-time ms :reqbody"));
 
 app.use(express.static("build"));
 
