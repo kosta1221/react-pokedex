@@ -26,7 +26,7 @@ function App() {
 		pokemonData: mockPokemonData,
 		isFetching: false,
 	});
-	const [pokemonNamesOfType, setPokemonNamesOfType] = useState([]);
+	const [pokemonsOfType, setPokemonsOfType] = useState([]);
 
 	useEffect(() => {
 		fetchPokemonNames(setAllPokemonNames, `limit=800`);
@@ -82,10 +82,10 @@ function App() {
 				pokemonData={data.pokemonData}
 				isFetching={data.isFetching}
 				setPokemonData={setData}
-				pokemonNamesOfType={pokemonNamesOfType}
-				setPokemonNamesOfType={setPokemonNamesOfType}
+				pokemonsOfType={pokemonsOfType}
+				setPokemonsOfType={setPokemonsOfType}
 			/>
-			<PokemonsOfTypeGrid pokemonNamesOfType={pokemonNamesOfType} />
+			<PokemonsOfTypeGrid pokemonsOfType={pokemonsOfType} />
 		</div>
 	);
 }

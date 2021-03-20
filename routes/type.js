@@ -16,9 +16,31 @@ type.get("/:name", async (req, res) => {
 			headers: { "Content-Type": "application/json" },
 		});
 
-		const relevantData = {
-			pokemonNamesOfType: data.pokemon.map((pokemon) => pokemon.pokemon.name),
-		};
+		const sprites = await Promise.all(
+			data.pokemon.map(async (pokemon) => {
+				const urlToFetch = pokemon.pokemon.url;
+				try {
+					const response = await axios({
+						method: "GET",
+						url: urlToFetch,
+						headers: { "Content-Type": "application/json" },
+					});
+					console.log(response.data.sprites.front_default);
+
+					return {
+						front_default: response.data.sprites.front_default,
+						back_default: response.data.sprites.back_default,
+					};
+				} catch (error) {
+					throw error;
+				}
+			})
+		);
+
+		const relevantData = data.pokemon.map((pokemon, i) => ({
+			name: pokemon.pokemon.name,
+			sprites: sprites[i],
+		}));
 
 		console.log(`Type route + ${req.params.name}`);
 		res.json(relevantData);
