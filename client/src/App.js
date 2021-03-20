@@ -5,6 +5,7 @@ import { fetchPokemonData, fetchPokemonNames } from "./utils.js";
 
 import PokemonsOfTypeGrid from "./components/PokemonsOfTypeGrid";
 import PokemonSection from "./components/PokemonSection";
+import CollectionSection from "./components/CollectionSection";
 
 function App() {
 	const mockPokemonData = {
@@ -58,18 +59,21 @@ function App() {
 
 	return (
 		<div className="App">
-			<PokemonSection
-				data={data}
-				setData={setData}
-				inputValue={inputValue}
-				handleInputChange={handleInputChange}
-				searchSuggestions={searchSuggestions}
-				searchButtonClickCount={searchButtonClickCount}
-				setSearchButtonClickCount={setSearchButtonClickCount}
-				setInputValue={setInputValue}
-				pokemonsOfType={pokemonsOfType}
-				setPokemonsOfType={setPokemonsOfType}
-			/>
+			<div className="pokemon-and-collection">
+				<PokemonSection
+					data={data}
+					setData={setData}
+					inputValue={inputValue}
+					handleInputChange={handleInputChange}
+					searchSuggestions={searchSuggestions}
+					searchButtonClickCount={searchButtonClickCount}
+					setSearchButtonClickCount={setSearchButtonClickCount}
+					setInputValue={setInputValue}
+					pokemonsOfType={pokemonsOfType}
+					setPokemonsOfType={setPokemonsOfType}
+				/>
+				<CollectionSection />
+			</div>
 
 			<PokemonsOfTypeGrid pokemonsOfType={pokemonsOfType} />
 		</div>
