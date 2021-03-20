@@ -8,4 +8,19 @@
 		width: 60%;
 		margin: 0.5vw;
 	}
+
+	.my-collection {
+		margin: 0 1vw;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-gap: 1vw;
+		max-height: 50vh;
+		overflow-y: scroll;
+
+		div {
+			background-color: grey;
+			font-size: 2vw;
+			aspect-ratio: 1 / 1;
+		}
+	}
 }

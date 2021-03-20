@@ -52,7 +52,7 @@ export const fetchPokemonTypes = async (type, setPokemonsOfType) => {
 	}
 };
 
-export const catchPokemon = async (pokemon) => {
+export const catchPokemon = async (pokemon, myCollection, setMyCollection) => {
 	console.log(`trying to catch(post) ${pokemon.name}...`);
 	console.log(`${URL}/collection/catch`);
 	try {
@@ -64,6 +64,24 @@ export const catchPokemon = async (pokemon) => {
 		});
 		console.log(response.data[response.data.length - 1].name);
 		console.log(response.data);
+		setMyCollection([...response.data]);
+	} catch (e) {
+		console.log(e);
+	}
+};
+
+export const fetchMyCollection = async (myCollection, setMyCollection) => {
+	console.log(`trying to fetch my collection...`);
+	console.log(`${URL}/collection`);
+	try {
+		const response = await axios({
+			method: "GET",
+			url: `${URL}/collection`,
+			headers: { "Content-Type": "application/json" },
+		});
+		const fetchedCollection = response.data;
+		console.log(response.data);
+		setMyCollection([...fetchedCollection]);
 	} catch (e) {
 		console.log(e);
 	}

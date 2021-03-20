@@ -5,7 +5,7 @@ const collection = Router();
 const myCollection = [];
 
 collection.get("/", (req, res) => {
-	res.send("collection route");
+	res.json(myCollection);
 });
 
 /* relevantData = {
