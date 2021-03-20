@@ -20,6 +20,7 @@ function App() {
 			},
 		},
 	};
+	const [errorMessage, setErrorMessage] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [allPokemonNames, setAllPokemonNames] = useState([]);
 	const [inputValue, setInputValue] = useState("pikachu");
@@ -32,7 +33,7 @@ function App() {
 	const [myCollection, setMyCollection] = useState([]);
 
 	useEffect(() => {
-		fetchPokemonNames(setAllPokemonNames, `limit=800`);
+		fetchPokemonNames(setAllPokemonNames, `limit=800`, setErrorMessage);
 
 		/* Event listener for closing suggestion list when clicking anywhere */
 		window.addEventListener("click", function (event) {
@@ -41,7 +42,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		fetchPokemonData(data, setData, inputValue);
+		fetchPokemonData(data, setData, inputValue, setErrorMessage);
 	}, [searchButtonClickCount]);
 
 	useEffect(() => {
@@ -72,16 +73,23 @@ function App() {
 					setInputValue={setInputValue}
 					pokemonsOfType={pokemonsOfType}
 					setPokemonsOfType={setPokemonsOfType}
+					setErrorMessage={setErrorMessage}
 				/>
 				<CollectionSection
 					data={data}
 					setData={setData}
 					myCollection={myCollection}
 					setMyCollection={setMyCollection}
+					setErrorMessage={setErrorMessage}
 				/>
 			</div>
-
-			<PokemonsOfTypeGrid pokemonsOfType={pokemonsOfType} data={data} setData={setData} />
+			<div className="alert alert-danger alert-dismissible fade show">{errorMessage}</div>
+			<PokemonsOfTypeGrid
+				pokemonsOfType={pokemonsOfType}
+				data={data}
+				setData={setData}
+				setErrorMessage={setErrorMessage}
+			/>
 		</div>
 	);
 }

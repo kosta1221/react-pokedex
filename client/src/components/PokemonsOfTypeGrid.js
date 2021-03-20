@@ -1,16 +1,16 @@
 import React from "react";
 import { fetchPokemonData } from "../utils";
 
-function PokemonsOfTypeGrid({ pokemonsOfType, data, setData }) {
+function PokemonsOfTypeGrid({ pokemonsOfType, data, setData, setErrorMessage }) {
 	const handleGridClick = (event) => {
 		const pokemonName = event.target.getAttribute("name");
-		fetchPokemonData(data, setData, pokemonName);
+		fetchPokemonData(data, setData, pokemonName, setErrorMessage);
 	};
 
 	return (
 		<div className="grid-container">
-			{pokemonsOfType.map((pokemon) => (
-				<div>
+			{pokemonsOfType.map((pokemon, i) => (
+				<div key={`type-grid-pokemon-${i}`}>
 					<span>{pokemon.name}</span>
 					<img
 						src={pokemon.sprites["front_default"]}

@@ -13,6 +13,7 @@ function PokemonSection({
 	setInputValue,
 	pokemonsOfType,
 	setPokemonsOfType,
+	setErrorMessage,
 }) {
 	return (
 		<section className="pokemon-section">
@@ -45,6 +46,7 @@ function PokemonSection({
 				setPokemonData={setData}
 				pokemonsOfType={pokemonsOfType}
 				setPokemonsOfType={setPokemonsOfType}
+				setErrorMessage={setErrorMessage}
 			/>
 		</section>
 	);

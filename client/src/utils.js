@@ -1,7 +1,7 @@
 import axios from "axios";
 const URL = `http://localhost:3001/api`;
 
-export const fetchPokemonData = async (data, setData, inputValue) => {
+export const fetchPokemonData = async (data, setData, inputValue, setErrorMessage) => {
 	console.log("trying to fetch...");
 	console.log(`${URL}/pokemon/${inputValue}`);
 	try {
@@ -14,12 +14,13 @@ export const fetchPokemonData = async (data, setData, inputValue) => {
 		});
 		setData({ pokemonData: response.data, isFetching: false });
 	} catch (e) {
-		console.log(e);
+		console.log(e.response.data);
+		setErrorMessage(e.response.data);
 		setData({ pokemonData: data.pokemonData, isFetching: false });
 	}
 };
 
-export const fetchPokemonNames = async (setAllPokemonNames, inputValue) => {
+export const fetchPokemonNames = async (setAllPokemonNames, inputValue, setErrorMessage) => {
 	console.log("trying to fetch names...");
 	console.log(`${URL}/pokemon/${inputValue}`);
 	try {
@@ -31,11 +32,12 @@ export const fetchPokemonNames = async (setAllPokemonNames, inputValue) => {
 		const pokemonNames = response.data.results.map((pokemon) => pokemon.name);
 		setAllPokemonNames(pokemonNames);
 	} catch (e) {
-		console.log(e);
+		console.log(e.response.data);
+		setErrorMessage(e.response.data);
 	}
 };
 
-export const fetchPokemonTypes = async (type, setPokemonsOfType) => {
+export const fetchPokemonTypes = async (type, setPokemonsOfType, setErrorMessage) => {
 	console.log(`trying to fetch ${type} types...`);
 	console.log(`${URL}/type/${type}`);
 	try {
@@ -48,11 +50,12 @@ export const fetchPokemonTypes = async (type, setPokemonsOfType) => {
 		console.log(response.data);
 		setPokemonsOfType(pokemonsOfType);
 	} catch (e) {
-		console.log(e);
+		console.log(e.response.data);
+		setErrorMessage(e.response.data);
 	}
 };
 
-export const catchPokemon = async (pokemon, myCollection, setMyCollection) => {
+export const catchPokemon = async (pokemon, myCollection, setMyCollection, setErrorMessage) => {
 	console.log(`trying to catch(post) ${pokemon.name}...`);
 	console.log(`${URL}/collection/catch`);
 	try {
@@ -66,11 +69,12 @@ export const catchPokemon = async (pokemon, myCollection, setMyCollection) => {
 		console.log(response.data);
 		setMyCollection([...response.data]);
 	} catch (e) {
-		console.log(e);
+		console.log(e.response.data);
+		setErrorMessage(e.response.data);
 	}
 };
 
-export const fetchMyCollection = async (myCollection, setMyCollection) => {
+export const fetchMyCollection = async (myCollection, setMyCollection, setErrorMessage) => {
 	console.log(`trying to fetch my collection...`);
 	console.log(`${URL}/collection`);
 	try {
@@ -83,11 +87,12 @@ export const fetchMyCollection = async (myCollection, setMyCollection) => {
 		console.log(response.data);
 		setMyCollection([...fetchedCollection]);
 	} catch (e) {
-		console.log(e);
+		console.log(e.response.data);
+		setErrorMessage(e.response.data);
 	}
 };
 
-export const releaseFromCollection = async (pokemonId, setMyCollection) => {
+export const releaseFromCollection = async (pokemonId, setMyCollection, setErrorMessage) => {
 	console.log(`trying to release pokemon id: ${pokemonId} from collection...`);
 	console.log(`${URL}/collection/${pokemonId}`);
 	try {
@@ -101,6 +106,7 @@ export const releaseFromCollection = async (pokemonId, setMyCollection) => {
 		console.log(response.data);
 		setMyCollection([...fetchedCollection]);
 	} catch (e) {
-		console.log(e);
+		console.log(e.response.data);
+		setErrorMessage(e.response.data);
 	}
 };

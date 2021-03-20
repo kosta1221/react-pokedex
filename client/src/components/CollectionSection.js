@@ -2,34 +2,34 @@ import React from "react";
 import { catchPokemon, fetchMyCollection, releaseFromCollection } from "../utils";
 import { useEffect } from "react";
 
-function CollectionSection({ data, setData, myCollection, setMyCollection }) {
+function CollectionSection({ data, setData, myCollection, setMyCollection, setErrorMessage }) {
 	useEffect(() => {
-		fetchMyCollection(myCollection, setMyCollection);
+		fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
 	}, []);
 
 	const pokemonData = data.pokemonData;
 
 	const handleCatch = (event) => {
 		console.log(pokemonData);
-		catchPokemon(pokemonData, myCollection, setMyCollection);
+		catchPokemon(pokemonData, myCollection, setMyCollection, setErrorMessage);
 	};
 
 	const handleViewCollection = (event) => {
 		console.log(myCollection);
-		fetchMyCollection(myCollection, setMyCollection);
+		fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
 	};
 
 	const handleRelease = (event) => {
 		const pokemonId = event.target.getAttribute("pokemonid");
 		console.log(pokemonId);
-		releaseFromCollection(pokemonId, setMyCollection);
+		releaseFromCollection(pokemonId, setMyCollection, setErrorMessage);
 	};
 
 	return (
 		<div className="collection-section">
 			<div className="my-collection">
-				{myCollection.map((pokemon) => (
-					<div>
+				{myCollection.map((pokemon, i) => (
+					<div key={`collection-pokemon-${i}`}>
 						<span>{pokemon.name}</span>
 						<img
 							src={pokemon.sprites["front_default"]}
