@@ -17,7 +17,7 @@ type.get("/:name", async (req, res) => {
 		});
 
 		const relevantData = {
-			pokemonNamesWithType: data.pokemon.map((pokemon) => pokemon.pokemon.name),
+			pokemonNamesOfType: data.pokemon.map((pokemon) => pokemon.pokemon.name),
 		};
 
 		console.log(`Type route + ${req.params.name}`);

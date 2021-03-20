@@ -3,6 +3,7 @@ import Pokemon from "./components/Pokemon";
 import React, { useState, useEffect } from "react";
 import { fetchPokemonData, fetchPokemonNames } from "./utils.js";
 import Suggestions from "./components/Suggestions";
+import PokemonsOfTypeGrid from "./components/PokemonsOfTypeGrid";
 
 function App() {
 	const mockPokemonData = {
@@ -25,6 +26,7 @@ function App() {
 		pokemonData: mockPokemonData,
 		isFetching: false,
 	});
+	const [pokemonNamesOfType, setPokemonNamesOfType] = useState([]);
 
 	useEffect(() => {
 		fetchPokemonNames(setAllPokemonNames, `limit=800`);
@@ -80,7 +82,10 @@ function App() {
 				pokemonData={data.pokemonData}
 				isFetching={data.isFetching}
 				setPokemonData={setData}
+				pokemonNamesOfType={pokemonNamesOfType}
+				setPokemonNamesOfType={setPokemonNamesOfType}
 			/>
+			<PokemonsOfTypeGrid pokemonNamesOfType={pokemonNamesOfType} />
 		</div>
 	);
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import { fetchPokemonTypes } from "../utils.js";
 
-function Pokemon({ pokemonData, isFetching }) {
+function Pokemon({ pokemonData, setPokemonNamesOfType, isFetching }) {
 	const handleTypeClick = (event) => {
 		const type = event.target.getAttribute("type");
 		console.log(type);
-		fetchPokemonTypes(type);
+		fetchPokemonTypes(type, setPokemonNamesOfType);
 	};
 
 	const pokemonDataDivs = [];

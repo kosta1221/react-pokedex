@@ -35,7 +35,7 @@ export const fetchPokemonNames = async (setAllPokemonNames, inputValue) => {
 	}
 };
 
-export const fetchPokemonTypes = async (type) => {
+export const fetchPokemonTypes = async (type, setPokemonNamesOfType) => {
 	console.log(`trying to fetch ${type} types...`);
 	console.log(`${URL}/type/${type}`);
 	try {
@@ -44,8 +44,9 @@ export const fetchPokemonTypes = async (type) => {
 			url: `${URL}/type/${type}`,
 			headers: { "Content-Type": "application/json" },
 		});
-		const pokemonNamesWithType = response.data;
-		console.log(pokemonNamesWithType);
+		const { pokemonNamesOfType } = response.data;
+		setPokemonNamesOfType(pokemonNamesOfType);
+		console.log(pokemonNamesOfType);
 	} catch (e) {
 		console.log(e);
 	}
