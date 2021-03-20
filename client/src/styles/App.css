@@ -30,6 +30,23 @@
   color: #ffffff;
 }
 
+.grid-container {
+  margin: 0 1vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1vw;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.grid-container div {
+  background-color: grey;
+  font-size: 2vw;
+  aspect-ratio: 1 / 1;
+}
+
 .App {
   text-align: center;
   -webkit-box-sizing: border-box;
