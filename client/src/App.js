@@ -1,6 +1,6 @@
 import "./styles/App.css";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { fetchPokemonData, fetchPokemonNames } from "./utils.js";
 
 import PokemonsOfTypeGrid from "./components/PokemonsOfTypeGrid";
@@ -31,6 +31,17 @@ function App() {
 	});
 	const [pokemonsOfType, setPokemonsOfType] = useState([]);
 	const [myCollection, setMyCollection] = useState([]);
+
+	const errorDiv = useRef(null);
+	console.log(errorDiv);
+
+	useEffect(() => {
+		if (errorMessage === "") {
+			errorDiv.current.style.display = "none";
+		} else {
+			errorDiv.current.style.display = "block";
+		}
+	}, [errorMessage]);
 
 	useEffect(() => {
 		fetchPokemonNames(setAllPokemonNames, `limit=800`, setErrorMessage);
@@ -83,7 +94,11 @@ function App() {
 					setErrorMessage={setErrorMessage}
 				/>
 			</div>
-			<div className="alert alert-danger alert-dismissible fade show">{errorMessage}</div>
+
+			<div ref={errorDiv} className="alert alert-danger alert-dismissible fade show">
+				{errorMessage}
+			</div>
+
 			<PokemonsOfTypeGrid
 				pokemonsOfType={pokemonsOfType}
 				data={data}
