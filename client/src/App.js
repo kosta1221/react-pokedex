@@ -81,7 +81,7 @@ function App() {
 				/>
 			</div>
 
-			<PokemonsOfTypeGrid pokemonsOfType={pokemonsOfType} />
+			<PokemonsOfTypeGrid pokemonsOfType={pokemonsOfType} data={data} setData={setData} />
 		</div>
 	);
 }
