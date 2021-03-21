@@ -1,11 +1,35 @@
 import React from "react";
 import { catchPokemon, fetchMyCollection, releaseFromCollection } from "../utils";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-function CollectionSection({ data, setData, myCollection, setMyCollection, setErrorMessage }) {
+function CollectionSection({
+	data,
+	setData,
+	myCollection,
+	setMyCollection,
+	setErrorMessage,
+	isCollectionDisplayed,
+	setIscollectionDisplayed,
+}) {
+	const viewCollectionButton = useRef(null);
+	console.log(viewCollectionButton);
+
+	const myCollectionDisplay = useRef(null);
+	console.log(myCollectionDisplay);
+
 	useEffect(() => {
 		fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
 	}, []);
+
+	useEffect(() => {
+		if (isCollectionDisplayed) {
+			myCollectionDisplay.current.style.display = "grid";
+			viewCollectionButton.current.innerText = "Hide My Collection";
+		} else {
+			myCollectionDisplay.current.style.display = "none";
+			viewCollectionButton.current.innerText = "View My Collection";
+		}
+	}, [isCollectionDisplayed]);
 
 	const pokemonData = data.pokemonData;
 
@@ -16,7 +40,14 @@ function CollectionSection({ data, setData, myCollection, setMyCollection, setEr
 
 	const handleViewCollection = (event) => {
 		console.log(myCollection);
-		fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
+		try {
+			fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
+		} catch (error) {
+			console.log(error);
+			throw error;
+		}
+
+		setIscollectionDisplayed(!isCollectionDisplayed);
 	};
 
 	const handleRelease = (event) => {
@@ -27,7 +58,7 @@ function CollectionSection({ data, setData, myCollection, setMyCollection, setEr
 
 	return (
 		<div className="collection-section">
-			<div className="my-collection">
+			<div ref={myCollectionDisplay} className="my-collection">
 				{myCollection.map((pokemon, i) => (
 					<div className="card text-white bg-primary" key={`collection-pokemon-${i}`}>
 						<span className="card-header">{pokemon.name}</span>
@@ -43,7 +74,7 @@ function CollectionSection({ data, setData, myCollection, setMyCollection, setEr
 					</div>
 				))}
 			</div>
-			<button className="btn btn-primary" onClick={handleViewCollection}>
+			<button ref={viewCollectionButton} className="btn btn-primary" onClick={handleViewCollection}>
 				View My Collection
 			</button>
 			<button className="btn btn-primary" onClick={handleCatch}>

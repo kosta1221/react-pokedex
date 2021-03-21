@@ -17,7 +17,7 @@ function PokemonSection({
 }) {
 	return (
 		<section className="pokemon-section">
-			<h1>Pokedex</h1>
+			<h1 className="main-header">Pokedex</h1>
 			<div className="autocomplete">
 				<input
 					id="search-input"

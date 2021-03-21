@@ -20,6 +20,7 @@ function App() {
 			},
 		},
 	};
+	const [isCollectionDisplayed, setIscollectionDisplayed] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
 	const [allPokemonNames, setAllPokemonNames] = useState([]);
@@ -93,6 +94,8 @@ function App() {
 					myCollection={myCollection}
 					setMyCollection={setMyCollection}
 					setErrorMessage={setErrorMessage}
+					isCollectionDisplayed={isCollectionDisplayed}
+					setIscollectionDisplayed={setIscollectionDisplayed}
 				/>
 			</div>
 

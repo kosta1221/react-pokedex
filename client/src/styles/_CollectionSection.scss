@@ -22,6 +22,7 @@
 			img {
 				height: auto;
 				width: 10vw;
+				align-self: center;
 				&:hover {
 					cursor: pointer;
 				}
@@ -50,4 +51,5 @@
 	text-overflow: clip;
 	overflow-x: hidden;
 	white-space: nowrap;
+	font-size: 1.5vw;
 }

@@ -52,24 +52,16 @@
 }
 
 .grid-container div {
-  background-color: grey;
   font-size: 2vw;
   aspect-ratio: 1 / 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .grid-container div img {
   height: auto;
   width: 10vw;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .grid-container div img:hover {
@@ -139,6 +131,18 @@
   text-align: left;
 }
 
+.btn {
+  padding: 0 0.2vw;
+  margin: 0 0.3vw;
+  font-size: 2vmax;
+  text-shadow: none;
+}
+
+.main-header {
+  color: #ffe100;
+  text-shadow: 2px 2px 0px #0400fd, 2px 2px 0px rgba(250, 233, 3, 0.2);
+}
+
 .collection-section {
   width: 50vw;
   display: -webkit-box;
@@ -175,6 +179,9 @@
 .collection-section .my-collection div img {
   height: auto;
   width: 10vw;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .collection-section .my-collection div img:hover {
@@ -201,6 +208,7 @@
   text-overflow: clip;
   overflow-x: hidden;
   white-space: nowrap;
+  font-size: 1.5vw;
 }
 
 .App {
@@ -209,6 +217,8 @@
           box-sizing: border-box;
   min-height: 100vh;
   background: linear-gradient(125deg, #54a9d5 0%, #0cbd70 85%);
+  color: whitesmoke;
+  text-shadow: 1px 1px 0px #000, 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-and-collection {

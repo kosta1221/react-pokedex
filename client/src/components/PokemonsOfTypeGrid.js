@@ -10,8 +10,8 @@ function PokemonsOfTypeGrid({ pokemonsOfType, data, setData, setErrorMessage }) 
 	return (
 		<div className="grid-container">
 			{pokemonsOfType.map((pokemon, i) => (
-				<div key={`type-grid-pokemon-${i}`}>
-					<span>{pokemon.name}</span>
+				<div className="card text-white bg-secondary" key={`type-grid-pokemon-${i}`}>
+					<span className="card-header">{pokemon.name}</span>
 					<img
 						src={pokemon.sprites["front_default"]}
 						alt="pokemon"

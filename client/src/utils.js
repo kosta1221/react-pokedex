@@ -110,3 +110,7 @@ export const releaseFromCollection = async (pokemonId, setMyCollection, setError
 		setErrorMessage(e.response.data);
 	}
 };
+
+export function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchPokemonTypes } from "../utils.js";
+import { fetchPokemonTypes, capitalizeFirstLetter } from "../utils.js";
 
 function Pokemon({ pokemonData, setPokemonsOfType, isFetching, setErrorMessage }) {
 	const handleTypeClick = (event) => {
@@ -15,15 +15,26 @@ function Pokemon({ pokemonData, setPokemonsOfType, isFetching, setErrorMessage }
 		if (Array.isArray(pokemonData[key]) && key === "types") {
 			pokemonDataDivs.push(
 				<div key={key} className="pokemon-data-div">
-					<span>{`${key}: `}</span>
+					<span>{`${capitalizeFirstLetter(key)}: `}</span>
 					{pokemonData[key].map((type, i) => {
 						if (pokemonData[key].length - 1 === i) {
 							return (
-								<span key={`type-${i}`} type={type} onClick={handleTypeClick}>{`${type}`}</span>
+								<span
+									className="btn btn-outline-primary"
+									key={`type-${i}`}
+									type={type}
+									onClick={handleTypeClick}
+								>{`${type}`}</span>
 							);
 						}
 						return (
-							<span key={`type-${i}`} type={type} onClick={handleTypeClick}>{`${type}, `}</span>
+							/* can add something to all spans which aren't the last one (like a comma) */
+							<span
+								className="btn btn-outline-primary"
+								key={`type-${i}`}
+								type={type}
+								onClick={handleTypeClick}
+							>{`${type}`}</span>
 						);
 					})}
 				</div>
@@ -34,7 +45,7 @@ function Pokemon({ pokemonData, setPokemonsOfType, isFetching, setErrorMessage }
 
 		pokemonDataDivs.push(
 			<div key={key} className="pokemon-data-div">
-				<span>{`${key}: `}</span>
+				<span>{`${capitalizeFirstLetter(key)}: `}</span>
 				<span>{pokemonData[key]}</span>
 			</div>
 		);
