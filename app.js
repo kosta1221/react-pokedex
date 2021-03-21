@@ -21,7 +21,7 @@ morgan.token("reqbody", (req) => {
 
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :reqbody"));
 
-app.use(express.static("build"));
+app.use(express.static("./client/build"));
 
 app.use("/api", api);
 
