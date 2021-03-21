@@ -12,10 +12,8 @@ function CollectionSection({
 	setIscollectionDisplayed,
 }) {
 	const viewCollectionButton = useRef(null);
-	console.log(viewCollectionButton);
 
 	const myCollectionDisplay = useRef(null);
-	console.log(myCollectionDisplay);
 
 	useEffect(() => {
 		fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
@@ -40,13 +38,6 @@ function CollectionSection({
 
 	const handleViewCollection = (event) => {
 		console.log(myCollection);
-		try {
-			fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
-		} catch (error) {
-			console.log(error);
-			throw error;
-		}
-
 		setIscollectionDisplayed(!isCollectionDisplayed);
 	};
 

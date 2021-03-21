@@ -14,6 +14,8 @@ function PokemonSection({
 	pokemonsOfType,
 	setPokemonsOfType,
 	setErrorMessage,
+	setTypeGridLoading,
+	pokemonLoading,
 }) {
 	return (
 		<section className="pokemon-section">
@@ -47,6 +49,8 @@ function PokemonSection({
 				pokemonsOfType={pokemonsOfType}
 				setPokemonsOfType={setPokemonsOfType}
 				setErrorMessage={setErrorMessage}
+				setTypeGridLoading={setTypeGridLoading}
+				pokemonLoading={pokemonLoading}
 			/>
 		</section>
 	);

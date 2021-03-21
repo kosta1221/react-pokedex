@@ -1,11 +1,18 @@
 import axios from "axios";
 const URL = `http://localhost:3001/api`;
 
-export const fetchPokemonData = async (data, setData, inputValue, setErrorMessage) => {
+export const fetchPokemonData = async (
+	data,
+	setData,
+	inputValue,
+	setErrorMessage,
+	setPokemonLoading
+) => {
 	console.log("trying to fetch...");
 	console.log(`${URL}/pokemon/${inputValue}`);
 	try {
-		console.log(data);
+		setPokemonLoading(true);
+
 		setData({ pokemonData: data.pokemonData, isFetching: true });
 		const response = await axios({
 			method: "GET",
@@ -13,16 +20,21 @@ export const fetchPokemonData = async (data, setData, inputValue, setErrorMessag
 			headers: { "Content-Type": "application/json" },
 		});
 		setData({ pokemonData: response.data, isFetching: false });
+
+		setPokemonLoading(false);
 	} catch (e) {
 		console.log(e.response.data);
 		setErrorMessage(e.response.data);
 		setData({ pokemonData: data.pokemonData, isFetching: false });
+
+		setPokemonLoading(false);
 	}
 };
 
 export const fetchPokemonNames = async (setAllPokemonNames, inputValue, setErrorMessage) => {
 	console.log("trying to fetch names...");
 	console.log(`${URL}/pokemon/${inputValue}`);
+
 	try {
 		const response = await axios({
 			method: "GET",
@@ -37,7 +49,14 @@ export const fetchPokemonNames = async (setAllPokemonNames, inputValue, setError
 	}
 };
 
-export const fetchPokemonTypes = async (type, setPokemonsOfType, setErrorMessage) => {
+export const fetchPokemonTypes = async (
+	type,
+	setPokemonsOfType,
+	setErrorMessage,
+	setTypeGridLoading
+) => {
+	setTypeGridLoading(true);
+
 	console.log(`trying to fetch ${type} types...`);
 	console.log(`${URL}/type/${type}`);
 	try {
@@ -49,9 +68,14 @@ export const fetchPokemonTypes = async (type, setPokemonsOfType, setErrorMessage
 		const pokemonsOfType = response.data;
 		console.log(response.data);
 		setPokemonsOfType(pokemonsOfType);
+
+		setTypeGridLoading(false);
 	} catch (e) {
+		setPokemonsOfType([]);
 		console.log(e.response.data);
-		setErrorMessage(e.response.data);
+		setErrorMessage(e.response.data.message);
+		setTypeGridLoading(false);
+		throw e;
 	}
 };
 
@@ -84,6 +108,7 @@ export const fetchMyCollection = async (myCollection, setMyCollection, setErrorM
 			headers: { "Content-Type": "application/json" },
 		});
 		const fetchedCollection = response.data;
+		console.log("Fetched collection...");
 		console.log(response.data);
 		setMyCollection([...fetchedCollection]);
 	} catch (e) {
