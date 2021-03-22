@@ -17,6 +17,10 @@ function PokemonSection({
 	setTypeGridLoading,
 	pokemonLoading,
 }) {
+	const handleSearchButtonClick = () => {
+		setSearchButtonClickCount(searchButtonClickCount + 1);
+	};
+
 	return (
 		<section className="pokemon-section">
 			<h1 className="main-header">Pokedex</h1>
@@ -28,10 +32,7 @@ function PokemonSection({
 					value={inputValue}
 				/>
 
-				<button
-					id="search-button"
-					onClick={() => setSearchButtonClickCount(searchButtonClickCount + 1)}
-				>
+				<button id="search-button" onClick={handleSearchButtonClick}>
 					🔍
 				</button>
 
@@ -39,6 +40,7 @@ function PokemonSection({
 					id="search-suggestions"
 					suggestions={searchSuggestions}
 					setInputValue={setInputValue}
+					handleSearchButtonClick={handleSearchButtonClick}
 				/>
 			</div>
 

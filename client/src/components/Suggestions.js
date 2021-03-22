@@ -1,8 +1,9 @@
 import React from "react";
 
-const Suggestions = ({ suggestions, setInputValue }) => {
+const Suggestions = ({ suggestions, setInputValue, handleSearchButtonClick }) => {
 	const handleSuggestionClick = (event) => {
 		setInputValue(event.target.innerText);
+		handleSearchButtonClick();
 	};
 
 	const options = suggestions.map((suggestion, i) => (

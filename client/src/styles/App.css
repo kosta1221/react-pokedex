@@ -120,6 +120,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: whitesmoke;
+  text-shadow: 1px 1px 0px #000, 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-data-except-big-artwork img {
@@ -224,8 +226,6 @@
           box-sizing: border-box;
   min-height: 100vh;
   background: linear-gradient(125deg, #54a9d5 0%, #0cbd70 85%);
-  color: whitesmoke;
-  text-shadow: 1px 1px 0px #000, 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-and-collection {
