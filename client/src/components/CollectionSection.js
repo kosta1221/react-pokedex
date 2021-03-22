@@ -35,6 +35,7 @@ function CollectionSection({
 	const handleCatch = (event) => {
 		console.log(pokemonData);
 		catchPokemon(pokemonData, myCollection, setMyCollection, setErrorMessage);
+		setIscollectionDisplayed(true);
 	};
 
 	const handleViewCollection = (event) => {
@@ -77,7 +78,7 @@ function CollectionSection({
 				View My Collection
 			</button>
 			<button className="btn btn-primary" onClick={handleCatch}>
-				Catch
+				{`Catch ${data.pokemonData.name}!`}
 			</button>
 		</div>
 	);

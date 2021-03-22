@@ -22,7 +22,6 @@ function PokemonsOfTypeGrid({
 			<div className="grid-container">
 				{pokemonsOfType.map((pokemon, i) => {
 					if (!pokemon || !pokemon.sprites) return null;
-					console.log(pokemon);
 					return (
 						<div className="card text-white bg-secondary" key={`type-grid-pokemon-${i}`}>
 							<span className="card-header">{pokemon.name}</span>
