@@ -92,7 +92,7 @@
 			margin-left: 5vw;
 			margin-right: 5vw;
 			grid-template-columns: 1fr 1fr;
-			max-height: 23vh;
+			max-height: 35vh;
 
 			div {
 				width: 15vw;
@@ -106,6 +106,14 @@
 
 		.card-header {
 			font-size: 1.3vmax;
+		}
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	.collection-section {
+		.my-collection {
+			max-height: 25vh;
 		}
 	}
 }

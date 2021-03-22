@@ -89,14 +89,16 @@
 
 		img {
 			margin-top: 0.5vmax;
-			width: 17vw;
+			width: 27vw;
 			height: auto;
 		}
 	}
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
 	.pokemon-data-except-big-artwork {
+		flex-direction: column-reverse;
+
 		.pokemon-data-div {
 			font-size: 4vw;
 			margin-left: 2vw;
@@ -108,7 +110,6 @@
 
 		img {
 			margin-top: 0.5vmax;
-			width: 17vw;
 			height: auto;
 		}
 	}
@@ -127,7 +128,6 @@
 
 		img {
 			margin-top: 0.5vmax;
-			width: 17vw;
 			height: auto;
 		}
 	}

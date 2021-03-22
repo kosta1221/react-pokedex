@@ -209,12 +209,18 @@
   }
   .pokemon-data-except-big-artwork img {
     margin-top: 0.5vmax;
-    width: 17vw;
+    width: 27vw;
     height: auto;
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
+  .pokemon-data-except-big-artwork {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
   .pokemon-data-except-big-artwork .pokemon-data-div {
     font-size: 4vw;
     margin-left: 2vw;
@@ -224,7 +230,6 @@
   }
   .pokemon-data-except-big-artwork img {
     margin-top: 0.5vmax;
-    width: 17vw;
     height: auto;
   }
 }
@@ -239,7 +244,6 @@
   }
   .pokemon-data-except-big-artwork img {
     margin-top: 0.5vmax;
-    width: 17vw;
     height: auto;
   }
 }
@@ -349,7 +353,7 @@
     margin-right: 5vw;
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-    max-height: 23vh;
+    max-height: 35vh;
   }
   .collection-section .my-collection div {
     width: 15vw;
@@ -360,6 +364,12 @@
   }
   .collection-section .card-header {
     font-size: 1.3vmax;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .collection-section .my-collection {
+    max-height: 25vh;
   }
 }
 
