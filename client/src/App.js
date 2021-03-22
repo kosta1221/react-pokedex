@@ -102,6 +102,7 @@ function App() {
 					setErrorMessage={setErrorMessage}
 					isCollectionDisplayed={isCollectionDisplayed}
 					setIscollectionDisplayed={setIscollectionDisplayed}
+					setPokemonLoading={setPokemonLoading}
 				/>
 			</div>
 

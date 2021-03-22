@@ -1,5 +1,5 @@
 import React from "react";
-import { catchPokemon, fetchMyCollection, releaseFromCollection } from "../utils";
+import { catchPokemon, fetchMyCollection, releaseFromCollection, fetchPokemonData } from "../utils";
 import { useEffect, useRef } from "react";
 
 function CollectionSection({
@@ -10,6 +10,7 @@ function CollectionSection({
 	setErrorMessage,
 	isCollectionDisplayed,
 	setIscollectionDisplayed,
+	setPokemonLoading,
 }) {
 	const viewCollectionButton = useRef(null);
 
@@ -47,6 +48,11 @@ function CollectionSection({
 		releaseFromCollection(pokemonId, setMyCollection, setErrorMessage);
 	};
 
+	const handleCollectionPokemonClick = (event) => {
+		const pokemonName = event.target.getAttribute("name");
+		fetchPokemonData(data, setData, pokemonName, setErrorMessage, setPokemonLoading);
+	};
+
 	return (
 		<div className="collection-section">
 			<div ref={myCollectionDisplay} className="my-collection">
@@ -58,6 +64,8 @@ function CollectionSection({
 							alt="pokemon"
 							onMouseEnter={(event) => (event.target.src = pokemon.sprites["back_default"])}
 							onMouseLeave={(event) => (event.target.src = pokemon.sprites["front_default"])}
+							name={pokemon.name}
+							onClick={handleCollectionPokemonClick}
 						/>
 						<button className="btn btn-warning" pokemonid={pokemon.id} onClick={handleRelease}>
 							Release
