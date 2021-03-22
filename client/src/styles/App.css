@@ -289,6 +289,20 @@
 	margin: 1.15vmax auto;
 }
 
+.collection-section .my-empty-collection {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 2vw;
+  margin-bottom: 4vmax;
+  background: #e4e605;
+  display: inline-block;
+  grid-gap: 1vw;
+  max-height: 50vh;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  font-size: 3vw;
+}
+
 .collection-section .my-collection {
 	margin-left: 1vw;
 	margin-right: 1vw;
