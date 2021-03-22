@@ -1,3 +1,15 @@
+@mixin other($width, $color, $bgcolor) {
+	box-shadow: 3 * $width 0 $bgcolor, -3 * $width 0 $bgcolor, 0 (-3 * $width) $bgcolor,
+		0 3 * $width $bgcolor, $width 0 0 1.5 * $width $bgcolor, -$width 0 0 1.5 * $width $bgcolor,
+		0 (-$width) 0 1.5 * $width $bgcolor, 0 $width 0 1.5 * $width $bgcolor, 5 * $width 0 $color,
+		-5 * $width 0 $color, 0 (-5 * $width) $color, 0 5 * $width $color, 0 0 0 3 * $width $color,
+		0 2 * $width 0 2 * $width $color, 0 (-2 * $width) 0 2 * $width $color,
+		2 * $width 0 0 2 * $width $color, (-2 * $width) 0 0 2 * $width $color;
+	margin: 5 * $width auto;
+}
+
+$collection-bg: rgb(228, 230, 5);
+
 @import "suggestions";
 @import "PokemonsOfTypeGrid";
 @import "PokemonSection";
@@ -7,6 +19,7 @@
 	text-align: center;
 	box-sizing: border-box;
 	min-height: 100vh;
+	padding-bottom: 0.2vh;
 	background: linear-gradient(125deg, rgba(84, 169, 213, 1) 0%, rgba(12, 189, 112, 1) 85%);
 }
 
@@ -17,6 +30,28 @@
 	min-height: 255px;
 }
 
+.alert-danger {
+	margin: 0.2vmax 0.8vmax;
+}
+
 body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media only screen and (max-width: 650px) {
+	.alert-danger {
+		font-size: 2vw;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.alert-danger {
+		font-size: 3vw;
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	.alert-danger {
+		font-size: 4.5vw;
+	}
 }

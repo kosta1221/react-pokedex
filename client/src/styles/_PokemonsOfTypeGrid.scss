@@ -1,21 +1,71 @@
+.lvl1 {
+	@include other(0.23vmax, #0d6efd, $collection-bg);
+}
+
 .grid-container {
-	margin: 0 1vw;
+	margin: 2vmax;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 1vw;
 	max-height: 50vh;
 	overflow-y: scroll;
-}
-.grid-container div {
-	font-size: 2vw;
-	aspect-ratio: 1 / 1;
+
+	.card {
+		font-size: 2vw;
+		aspect-ratio: 1 / 1;
+		justify-content: space-between;
+	}
 
 	img {
 		height: auto;
-		width: 10vw;
+		width: 12vw;
 		align-self: center;
 		&:hover {
 			cursor: pointer;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.grid-container {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+		div {
+			.card-header {
+				font-size: 2.5vw;
+			}
+
+			img {
+				width: 15vw;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.grid-container {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+
+		div {
+			.card-header {
+				font-size: 3.5vw;
+			}
+
+			img {
+				width: 20vw;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.grid-container {
+		grid-template-columns: 1fr 1fr 1fr;
+
+		div {
+			img {
+				width: 25vw;
+			}
 		}
 	}
 }
