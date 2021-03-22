@@ -54,6 +54,26 @@ function CollectionSection({
 		fetchPokemonData(data, setData, pokemonName, setErrorMessage, setPokemonLoading);
 	};
 
+	if (myCollection.length === 0) {
+		return (
+			<div className="collection-section">
+				<div ref={myCollectionDisplay} className="my-empty-collection lvl1">
+					<span>Collection is empty...</span>
+				</div>
+				<button
+					ref={viewCollectionButton}
+					className="btn btn-primary"
+					onClick={handleViewCollection}
+				>
+					View My Collection
+				</button>
+				<button className="btn btn-primary" onClick={handleCatch}>
+					{`Catch ${data.pokemonData.name}!`}
+				</button>
+			</div>
+		);
+	}
+
 	return (
 		<div className="collection-section">
 			<div ref={myCollectionDisplay} className="my-collection lvl1">

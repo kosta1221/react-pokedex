@@ -8,6 +8,19 @@
 		@include other(0.23vmax, #0d6efd, $collection-bg);
 	}
 
+	.my-empty-collection {
+		margin-left: 1vw;
+		margin-right: 1vw;
+		margin-top: 2vw;
+		margin-bottom: 4vmax;
+		background: $collection-bg;
+		display: inline-block;
+		grid-gap: 1vw;
+		max-height: 50vh;
+		box-sizing: content-box;
+		font-size: 3vw;
+	}
+
 	.my-collection {
 		margin-left: 1vw;
 		margin-right: 1vw;
