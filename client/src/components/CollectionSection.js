@@ -56,7 +56,7 @@ function CollectionSection({
 
 	return (
 		<div className="collection-section">
-			<div ref={myCollectionDisplay} className="my-collection">
+			<div ref={myCollectionDisplay} className="my-collection lvl1">
 				{myCollection.map((pokemon, i) => (
 					<div className="card text-white bg-primary" key={`collection-pokemon-${i}`}>
 						<span className="card-header">{pokemon.name}</span>

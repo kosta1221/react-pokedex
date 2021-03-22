@@ -174,9 +174,16 @@
           align-items: center;
 }
 
+.collection-section .lvl1 {
+  -webkit-box-shadow: 0.8vmax 0 yellow, -0.8vmax 0 yellow, 0 -0.8vmax yellow, 0 0.8vmax yellow, 0.2vmax 0 0 0.4vmax yellow, -0.2vmax 0 0 0.4vmax yellow, 0 -0.2vmax 0 0.4vmax yellow, 0 0.2vmax 0 0.4vmax yellow, 1vmax 0 #ffc107, -1vmax 0 #ffc107, 0 -1vmax #ffc107, 0 1vmax #ffc107, 0 0 0 0.6vmax #ffc107, 0 0.4vmax 0 0.4vmax #ffc107, 0 -0.4vmax 0 0.4vmax #ffc107, 0.4vmax 0 0 0.4vmax #ffc107, -0.4vmax 0 0 0.4vmax #ffc107;
+          box-shadow: 0.8vmax 0 yellow, -0.8vmax 0 yellow, 0 -0.8vmax yellow, 0 0.8vmax yellow, 0.2vmax 0 0 0.4vmax yellow, -0.2vmax 0 0 0.4vmax yellow, 0 -0.2vmax 0 0.4vmax yellow, 0 0.2vmax 0 0.4vmax yellow, 1vmax 0 #ffc107, -1vmax 0 #ffc107, 0 -1vmax #ffc107, 0 1vmax #ffc107, 0 0 0 0.6vmax #ffc107, 0 0.4vmax 0 0.4vmax #ffc107, 0 -0.4vmax 0 0.4vmax #ffc107, 0.4vmax 0 0 0.4vmax #ffc107, -0.4vmax 0 0 0.4vmax #ffc107;
+  margin: 1vmax auto;
+}
+
 .collection-section .my-collection {
-  margin: 0 1vw;
-  margin-top: 1vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 2vw;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
@@ -184,10 +191,11 @@
   grid-gap: 1vw;
   max-height: 50vh;
   overflow-y: scroll;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
 }
 
 .collection-section .my-collection div {
-  background-color: grey;
   font-size: 1.5vw;
   width: 10vw;
   aspect-ratio: 1 / 1;
@@ -206,8 +214,9 @@
 }
 
 .collection-section .my-collection div button {
-  font-size: 1vmax;
+  font-size: 1.2vmax;
   text-align: center;
+  margin-bottom: 0.3vw;
 }
 
 .collection-section .my-collection div button:hover {
@@ -234,15 +243,38 @@
   }
   .collection-section .my-collection {
     margin-bottom: 2vmax;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    max-height: 35vh;
+  }
+  .collection-section .my-collection div {
+    width: 10vw;
+  }
+  .collection-section .my-collection div button {
+    font-size: 1.3vmax;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .collection-section .my-collection {
     margin-bottom: 4vmax;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    max-height: 23vh;
+  }
+  .collection-section .my-collection div {
+    width: 15vw;
+    font-size: 1.3vmax;
   }
   .collection-section .my-collection div button {
-    font-size: 0.5vmax;
+    font-size: 1.2vmax;
+  }
+  .collection-section .card-header {
+    font-size: 1.3vmax;
   }
 }
 
