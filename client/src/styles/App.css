@@ -74,6 +74,42 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+  .grid-container {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .grid-container div .card-header {
+    font-size: 2.5vw;
+  }
+  .grid-container div img {
+    width: 15vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .grid-container {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .grid-container div .card-header {
+    font-size: 3.5vw;
+  }
+  .grid-container div img {
+    width: 20vw;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .grid-container {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+  .grid-container div img {
+    width: 25vw;
+  }
+}
+
 .pokemon-section {
   width: 50vw;
 }
@@ -163,6 +199,48 @@
   .big-artwork {
     height: 20vw;
     margin-top: 2vh;
+  }
+  .pokemon-data-except-big-artwork .pokemon-data-div {
+    font-size: 3vw;
+    margin-left: 2vw;
+  }
+  .pokemon-data-except-big-artwork .btn {
+    font-size: 3vw;
+  }
+  .pokemon-data-except-big-artwork img {
+    margin-top: 0.5vmax;
+    width: 17vw;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .pokemon-data-except-big-artwork .pokemon-data-div {
+    font-size: 4vw;
+    margin-left: 2vw;
+  }
+  .pokemon-data-except-big-artwork .btn {
+    font-size: 4vw;
+  }
+  .pokemon-data-except-big-artwork img {
+    margin-top: 0.5vmax;
+    width: 17vw;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .pokemon-data-except-big-artwork .pokemon-data-div {
+    font-size: 4.5vw;
+    margin-left: 2vw;
+  }
+  .pokemon-data-except-big-artwork .btn {
+    font-size: 4.5vw;
+  }
+  .pokemon-data-except-big-artwork img {
+    margin-top: 0.5vmax;
+    width: 17vw;
+    height: auto;
   }
 }
 

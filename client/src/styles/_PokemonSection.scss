@@ -76,4 +76,59 @@
 		height: 20vw;
 		margin-top: 2vh;
 	}
+
+	.pokemon-data-except-big-artwork {
+		.pokemon-data-div {
+			font-size: 3vw;
+			margin-left: 2vw;
+		}
+
+		.btn {
+			font-size: 3vw;
+		}
+
+		img {
+			margin-top: 0.5vmax;
+			width: 17vw;
+			height: auto;
+		}
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.pokemon-data-except-big-artwork {
+		.pokemon-data-div {
+			font-size: 4vw;
+			margin-left: 2vw;
+		}
+
+		.btn {
+			font-size: 4vw;
+		}
+
+		img {
+			margin-top: 0.5vmax;
+			width: 17vw;
+			height: auto;
+		}
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	.pokemon-data-except-big-artwork {
+		.pokemon-data-div {
+			font-size: 4.5vw;
+			margin-left: 2vw;
+		}
+
+		.btn {
+			font-size: 4.5vw;
+		}
+
+		img {
+			margin-top: 0.5vmax;
+			width: 17vw;
+			height: auto;
+		}
+	}
 }
