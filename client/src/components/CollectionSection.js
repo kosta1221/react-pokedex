@@ -1,5 +1,5 @@
 import React from "react";
-import { catchPokemon, fetchMyCollection, releaseFromCollection } from "../utils";
+import { catchPokemon, fetchMyCollection, releaseFromCollection, fetchPokemonData } from "../utils";
 import { useEffect, useRef } from "react";
 
 function CollectionSection({
@@ -10,12 +10,11 @@ function CollectionSection({
 	setErrorMessage,
 	isCollectionDisplayed,
 	setIscollectionDisplayed,
+	setPokemonLoading,
 }) {
 	const viewCollectionButton = useRef(null);
-	console.log(viewCollectionButton);
 
 	const myCollectionDisplay = useRef(null);
-	console.log(myCollectionDisplay);
 
 	useEffect(() => {
 		fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
@@ -36,17 +35,11 @@ function CollectionSection({
 	const handleCatch = (event) => {
 		console.log(pokemonData);
 		catchPokemon(pokemonData, myCollection, setMyCollection, setErrorMessage);
+		setIscollectionDisplayed(true);
 	};
 
 	const handleViewCollection = (event) => {
 		console.log(myCollection);
-		try {
-			fetchMyCollection(myCollection, setMyCollection, setErrorMessage);
-		} catch (error) {
-			console.log(error);
-			throw error;
-		}
-
 		setIscollectionDisplayed(!isCollectionDisplayed);
 	};
 
@@ -54,6 +47,11 @@ function CollectionSection({
 		const pokemonId = event.target.getAttribute("pokemonid");
 		console.log(pokemonId);
 		releaseFromCollection(pokemonId, setMyCollection, setErrorMessage);
+	};
+
+	const handleCollectionPokemonClick = (event) => {
+		const pokemonName = event.target.getAttribute("name");
+		fetchPokemonData(data, setData, pokemonName, setErrorMessage, setPokemonLoading);
 	};
 
 	return (
@@ -67,6 +65,8 @@ function CollectionSection({
 							alt="pokemon"
 							onMouseEnter={(event) => (event.target.src = pokemon.sprites["back_default"])}
 							onMouseLeave={(event) => (event.target.src = pokemon.sprites["front_default"])}
+							name={pokemon.name}
+							onClick={handleCollectionPokemonClick}
 						/>
 						<button className="btn btn-warning" pokemonid={pokemon.id} onClick={handleRelease}>
 							Release
@@ -78,7 +78,7 @@ function CollectionSection({
 				View My Collection
 			</button>
 			<button className="btn btn-primary" onClick={handleCatch}>
-				Catch
+				{`Catch ${data.pokemonData.name}!`}
 			</button>
 		</div>
 	);

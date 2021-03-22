@@ -7,6 +7,8 @@ import PokemonsOfTypeGrid from "./components/PokemonsOfTypeGrid";
 import PokemonSection from "./components/PokemonSection";
 import CollectionSection from "./components/CollectionSection";
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 function App() {
 	const mockPokemonData = {
 		id: null,
@@ -20,6 +22,9 @@ function App() {
 			},
 		},
 	};
+	const [pokemonLoading, setPokemonLoading] = useState(true);
+	const [typeGridLoading, setTypeGridLoading] = useState(false);
+
 	const [isCollectionDisplayed, setIscollectionDisplayed] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 	const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -34,7 +39,6 @@ function App() {
 	const [myCollection, setMyCollection] = useState([]);
 
 	const errorDiv = useRef(null);
-	console.log(errorDiv);
 
 	useEffect(() => {
 		if (errorMessage === "") {
@@ -55,11 +59,11 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		fetchPokemonData(data, setData, inputValue, setErrorMessage);
+		fetchPokemonData(data, setData, inputValue, setErrorMessage, setPokemonLoading);
 	}, [searchButtonClickCount]);
 
 	useEffect(() => {
-		console.log(inputValue);
+		console.log("input: ", inputValue);
 		const searchSuggestions = allPokemonNames.filter((pokemonName) =>
 			pokemonName.includes(inputValue)
 		);
@@ -87,6 +91,8 @@ function App() {
 					pokemonsOfType={pokemonsOfType}
 					setPokemonsOfType={setPokemonsOfType}
 					setErrorMessage={setErrorMessage}
+					setTypeGridLoading={setTypeGridLoading}
+					pokemonLoading={pokemonLoading}
 				/>
 				<CollectionSection
 					data={data}
@@ -96,6 +102,7 @@ function App() {
 					setErrorMessage={setErrorMessage}
 					isCollectionDisplayed={isCollectionDisplayed}
 					setIscollectionDisplayed={setIscollectionDisplayed}
+					setPokemonLoading={setPokemonLoading}
 				/>
 			</div>
 
@@ -106,8 +113,10 @@ function App() {
 			<PokemonsOfTypeGrid
 				pokemonsOfType={pokemonsOfType}
 				data={data}
+				typeGridLoading={typeGridLoading}
 				setData={setData}
 				setErrorMessage={setErrorMessage}
+				setPokemonLoading={setPokemonLoading}
 			/>
 		</div>
 	);

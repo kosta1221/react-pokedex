@@ -25,14 +25,13 @@ type.get("/:name", async (req, res) => {
 						url: urlToFetch,
 						headers: { "Content-Type": "application/json" },
 					});
-					console.log(response.data.sprites.front_default);
 
 					return {
 						front_default: response.data.sprites.front_default,
 						back_default: response.data.sprites.back_default,
 					};
 				} catch (error) {
-					throw error;
+					console.log(error.response.data);
 				}
 			})
 		);
