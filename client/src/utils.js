@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = `http://localhost:3001/api`;
+const URL = `/api`;
 
 export const fetchPokemonData = async (
 	data,
