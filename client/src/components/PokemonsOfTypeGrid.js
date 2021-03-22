@@ -17,9 +17,11 @@ function PokemonsOfTypeGrid({
 
 	if (typeGridLoading) {
 		return <Loader type="MutatingDots" color="#00BFFF" height={100} width={100} />;
+	} else if (pokemonsOfType.length === 0) {
+		return null;
 	} else {
 		return (
-			<div className="grid-container">
+			<div className="grid-container lvl1">
 				{pokemonsOfType.map((pokemon, i) => {
 					if (!pokemon || !pokemon.sprites) return null;
 					return (

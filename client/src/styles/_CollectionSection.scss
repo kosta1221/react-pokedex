@@ -1,13 +1,3 @@
-@mixin other($width, $color, $bgcolor) {
-	box-shadow: 4 * $width 0 $bgcolor, -4 * $width 0 $bgcolor, 0 (-4 * $width) $bgcolor,
-		0 4 * $width $bgcolor, $width 0 0 2 * $width $bgcolor, -$width 0 0 2 * $width $bgcolor,
-		0 (-$width) 0 2 * $width $bgcolor, 0 $width 0 2 * $width $bgcolor, 5 * $width 0 $color,
-		-5 * $width 0 $color, 0 (-5 * $width) $color, 0 5 * $width $color, 0 0 0 3 * $width $color,
-		0 2 * $width 0 2 * $width $color, 0 (-2 * $width) 0 2 * $width $color,
-		2 * $width 0 0 2 * $width $color, (-2 * $width) 0 0 2 * $width $color;
-	margin: 5 * $width auto;
-}
-
 .collection-section {
 	width: 50vw;
 	display: flex;
@@ -15,13 +5,14 @@
 	align-items: center;
 
 	.lvl1 {
-		@include other(0.2vmax, rgb(255, 193, 7), yellow);
+		@include other(0.23vmax, #0d6efd, rgb(255, 240, 0));
 	}
 
 	.my-collection {
 		margin-left: 1vw;
 		margin-right: 1vw;
 		margin-top: 2vw;
+		background: rgb(255, 240, 0);
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 		grid-gap: 1vw;

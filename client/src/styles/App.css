@@ -40,8 +40,14 @@
   }
 }
 
+.lvl1 {
+  -webkit-box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+          box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+  margin: 1.15vmax auto;
+}
+
 .grid-container {
-  margin: 0 1vw;
+  margin: 2vmax;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -175,15 +181,16 @@
 }
 
 .collection-section .lvl1 {
-  -webkit-box-shadow: 0.8vmax 0 yellow, -0.8vmax 0 yellow, 0 -0.8vmax yellow, 0 0.8vmax yellow, 0.2vmax 0 0 0.4vmax yellow, -0.2vmax 0 0 0.4vmax yellow, 0 -0.2vmax 0 0.4vmax yellow, 0 0.2vmax 0 0.4vmax yellow, 1vmax 0 #ffc107, -1vmax 0 #ffc107, 0 -1vmax #ffc107, 0 1vmax #ffc107, 0 0 0 0.6vmax #ffc107, 0 0.4vmax 0 0.4vmax #ffc107, 0 -0.4vmax 0 0.4vmax #ffc107, 0.4vmax 0 0 0.4vmax #ffc107, -0.4vmax 0 0 0.4vmax #ffc107;
-          box-shadow: 0.8vmax 0 yellow, -0.8vmax 0 yellow, 0 -0.8vmax yellow, 0 0.8vmax yellow, 0.2vmax 0 0 0.4vmax yellow, -0.2vmax 0 0 0.4vmax yellow, 0 -0.2vmax 0 0.4vmax yellow, 0 0.2vmax 0 0.4vmax yellow, 1vmax 0 #ffc107, -1vmax 0 #ffc107, 0 -1vmax #ffc107, 0 1vmax #ffc107, 0 0 0 0.6vmax #ffc107, 0 0.4vmax 0 0.4vmax #ffc107, 0 -0.4vmax 0 0.4vmax #ffc107, 0.4vmax 0 0 0.4vmax #ffc107, -0.4vmax 0 0 0.4vmax #ffc107;
-  margin: 1vmax auto;
+  -webkit-box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+          box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+  margin: 1.15vmax auto;
 }
 
 .collection-section .my-collection {
   margin-left: 1vw;
   margin-right: 1vw;
   margin-top: 2vw;
+  background: #fff000;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;

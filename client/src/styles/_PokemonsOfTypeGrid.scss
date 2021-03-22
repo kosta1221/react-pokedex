@@ -1,5 +1,9 @@
+.lvl1 {
+	@include other(0.23vmax, #0d6efd, rgb(255, 240, 0));
+}
+
 .grid-container {
-	margin: 0 1vw;
+	margin: 2vmax;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 1vw;
