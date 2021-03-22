@@ -53,3 +53,29 @@
 	white-space: nowrap;
 	font-size: 1.5vw;
 }
+
+@media only screen and (max-width: 600px) {
+	.collection-section {
+		.btn-primary {
+			font-size: 1.5vmax;
+		}
+
+		.my-collection {
+			margin-bottom: 2vmax;
+		}
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.collection-section {
+		.my-collection {
+			margin-bottom: 4vmax;
+
+			div {
+				button {
+					font-size: 0.5vmax;
+				}
+			}
+		}
+	}
+}

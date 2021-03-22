@@ -113,7 +113,7 @@
 
 .big-artwork {
   width: auto;
-  height: 20vw;
+  height: 20vh;
   margin-bottom: 1.5vw;
 }
 
@@ -131,7 +131,8 @@
 }
 
 .pokemon-data-except-big-artwork img {
-  width: 20vw;
+  margin-top: 0.5vmax;
+  width: 17vw;
   height: auto;
 }
 
@@ -150,6 +151,13 @@
 .main-header {
   color: #ffe100;
   text-shadow: 2px 2px 0px #0400fd, 2px 2px 0px rgba(250, 233, 3, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+  .big-artwork {
+    height: 20vw;
+    margin-top: 2vh;
+  }
 }
 
 .collection-section {
@@ -218,6 +226,24 @@
   overflow-x: hidden;
   white-space: nowrap;
   font-size: 1.5vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .collection-section .btn-primary {
+    font-size: 1.5vmax;
+  }
+  .collection-section .my-collection {
+    margin-bottom: 2vmax;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .collection-section .my-collection {
+    margin-bottom: 4vmax;
+  }
+  .collection-section .my-collection div button {
+    font-size: 0.5vmax;
+  }
 }
 
 .App {

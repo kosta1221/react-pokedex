@@ -36,7 +36,7 @@
 
 .big-artwork {
 	width: auto;
-	height: 20vw;
+	height: 20vh;
 	margin-bottom: 1.5vw;
 }
 
@@ -48,7 +48,8 @@
 	text-shadow: 1px 1px 0px #000, 1px 1px 0px rgba(0, 0, 0, 0.2);
 
 	img {
-		width: 20vw;
+		margin-top: 0.5vmax;
+		width: 17vw;
 		height: auto;
 	}
 }
@@ -68,4 +69,11 @@
 .main-header {
 	color: rgb(255, 225, 0);
 	text-shadow: 2px 2px 0px #0400fd, 2px 2px 0px rgba(250, 233, 3, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+	.big-artwork {
+		height: 20vw;
+		margin-top: 2vh;
+	}
 }
