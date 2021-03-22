@@ -41,8 +41,8 @@
 }
 
 .lvl1 {
-  -webkit-box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
-          box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+  -webkit-box-shadow: 0.69vmax 0 #e4e605, -0.69vmax 0 #e4e605, 0 -0.69vmax #e4e605, 0 0.69vmax #e4e605, 0.23vmax 0 0 0.345vmax #e4e605, -0.23vmax 0 0 0.345vmax #e4e605, 0 -0.23vmax 0 0.345vmax #e4e605, 0 0.23vmax 0 0.345vmax #e4e605, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+          box-shadow: 0.69vmax 0 #e4e605, -0.69vmax 0 #e4e605, 0 -0.69vmax #e4e605, 0 0.69vmax #e4e605, 0.23vmax 0 0 0.345vmax #e4e605, -0.23vmax 0 0 0.345vmax #e4e605, 0 -0.23vmax 0 0.345vmax #e4e605, 0 0.23vmax 0 0.345vmax #e4e605, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
   margin: 1.15vmax auto;
 }
 
@@ -57,20 +57,23 @@
   overflow-y: scroll;
 }
 
-.grid-container div {
+.grid-container .card {
   font-size: 2vw;
   aspect-ratio: 1 / 1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.grid-container div img {
+.grid-container img {
   height: auto;
-  width: 10vw;
+  width: 12vw;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-.grid-container div img:hover {
+.grid-container img:hover {
   cursor: pointer;
 }
 
@@ -263,8 +266,8 @@
 }
 
 .collection-section .lvl1 {
-  -webkit-box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
-          box-shadow: 0.69vmax 0 #fff000, -0.69vmax 0 #fff000, 0 -0.69vmax #fff000, 0 0.69vmax #fff000, 0.23vmax 0 0 0.345vmax #fff000, -0.23vmax 0 0 0.345vmax #fff000, 0 -0.23vmax 0 0.345vmax #fff000, 0 0.23vmax 0 0.345vmax #fff000, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+  -webkit-box-shadow: 0.69vmax 0 #e4e605, -0.69vmax 0 #e4e605, 0 -0.69vmax #e4e605, 0 0.69vmax #e4e605, 0.23vmax 0 0 0.345vmax #e4e605, -0.23vmax 0 0 0.345vmax #e4e605, 0 -0.23vmax 0 0.345vmax #e4e605, 0 0.23vmax 0 0.345vmax #e4e605, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
+          box-shadow: 0.69vmax 0 #e4e605, -0.69vmax 0 #e4e605, 0 -0.69vmax #e4e605, 0 0.69vmax #e4e605, 0.23vmax 0 0 0.345vmax #e4e605, -0.23vmax 0 0 0.345vmax #e4e605, 0 -0.23vmax 0 0.345vmax #e4e605, 0 0.23vmax 0 0.345vmax #e4e605, 1.15vmax 0 #0d6efd, -1.15vmax 0 #0d6efd, 0 -1.15vmax #0d6efd, 0 1.15vmax #0d6efd, 0 0 0 0.69vmax #0d6efd, 0 0.46vmax 0 0.46vmax #0d6efd, 0 -0.46vmax 0 0.46vmax #0d6efd, 0.46vmax 0 0 0.46vmax #0d6efd, -0.46vmax 0 0 0.46vmax #0d6efd;
   margin: 1.15vmax auto;
 }
 
@@ -272,7 +275,7 @@
   margin-left: 1vw;
   margin-right: 1vw;
   margin-top: 2vw;
-  background: #fff000;
+  background: #e4e605;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
@@ -378,6 +381,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   min-height: 100vh;
+  padding-bottom: 0.2vh;
   background: linear-gradient(125deg, #54a9d5 0%, #0cbd70 85%);
 }
 

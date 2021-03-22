@@ -1,5 +1,5 @@
 .lvl1 {
-	@include other(0.23vmax, #0d6efd, rgb(255, 240, 0));
+	@include other(0.23vmax, #0d6efd, $collection-bg);
 }
 
 .grid-container {
@@ -9,14 +9,16 @@
 	grid-gap: 1vw;
 	max-height: 50vh;
 	overflow-y: scroll;
-}
-.grid-container div {
-	font-size: 2vw;
-	aspect-ratio: 1 / 1;
+
+	.card {
+		font-size: 2vw;
+		aspect-ratio: 1 / 1;
+		justify-content: space-between;
+	}
 
 	img {
 		height: auto;
-		width: 10vw;
+		width: 12vw;
 		align-self: center;
 		&:hover {
 			cursor: pointer;

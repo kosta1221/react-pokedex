@@ -8,6 +8,8 @@
 	margin: 5 * $width auto;
 }
 
+$collection-bg: rgb(228, 230, 5);
+
 @import "suggestions";
 @import "PokemonsOfTypeGrid";
 @import "PokemonSection";
@@ -17,6 +19,7 @@
 	text-align: center;
 	box-sizing: border-box;
 	min-height: 100vh;
+	padding-bottom: 0.2vh;
 	background: linear-gradient(125deg, rgba(84, 169, 213, 1) 0%, rgba(12, 189, 112, 1) 85%);
 }
 

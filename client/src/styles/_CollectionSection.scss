@@ -5,14 +5,14 @@
 	align-items: center;
 
 	.lvl1 {
-		@include other(0.23vmax, #0d6efd, rgb(255, 240, 0));
+		@include other(0.23vmax, #0d6efd, $collection-bg);
 	}
 
 	.my-collection {
 		margin-left: 1vw;
 		margin-right: 1vw;
 		margin-top: 2vw;
-		background: rgb(255, 240, 0);
+		background: $collection-bg;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 		grid-gap: 1vw;
