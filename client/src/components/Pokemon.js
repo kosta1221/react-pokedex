@@ -64,7 +64,7 @@ function Pokemon({
 		);
 	}
 	if (pokemonLoading) {
-		return <Loader type="MutatingDots" color="#00BFFF" height={100} width={100} />;
+		return <Loader type="MutatingDots" color="#00BFFF" height={`100%`} width={100} />;
 	} else {
 		return (
 			<div>
