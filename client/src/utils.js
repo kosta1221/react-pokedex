@@ -23,8 +23,13 @@ export const fetchPokemonData = async (
 
 		setPokemonLoading(false);
 	} catch (e) {
-		console.log(e.response.data);
-		setErrorMessage(e.response.data);
+		console.log(e);
+		if (typeof e.response.data === "string") {
+			setErrorMessage(e.response.data);
+		} else if (typeof e.response.data.message === "string") {
+			setErrorMessage(e.response.data.message);
+		} else setErrorMessage(e.message);
+
 		setData({ pokemonData: data.pokemonData, isFetching: false });
 
 		setPokemonLoading(false);
@@ -44,8 +49,12 @@ export const fetchPokemonNames = async (setAllPokemonNames, inputValue, setError
 		const pokemonNames = response.data.results.map((pokemon) => pokemon.name);
 		setAllPokemonNames(pokemonNames);
 	} catch (e) {
-		console.log(e.response.data);
-		setErrorMessage(e.response.data);
+		console.log(e);
+		if (typeof e.response.data === "string") {
+			setErrorMessage(e.response.data);
+		} else if (typeof e.response.data.message === "string") {
+			setErrorMessage(e.response.data.message);
+		} else setErrorMessage(e.message);
 	}
 };
 
@@ -72,8 +81,12 @@ export const fetchPokemonTypes = async (
 		setTypeGridLoading(false);
 	} catch (e) {
 		setPokemonsOfType([]);
-		console.log(e.response.data);
-		setErrorMessage(e.response.data.message);
+		console.log(e);
+		if (typeof e.response.data === "string") {
+			setErrorMessage(e.response.data);
+		} else if (typeof e.response.data.message === "string") {
+			setErrorMessage(e.response.data.message);
+		} else setErrorMessage(e.message);
 		setTypeGridLoading(false);
 		throw e;
 	}
@@ -93,8 +106,12 @@ export const catchPokemon = async (pokemon, myCollection, setMyCollection, setEr
 		console.log(response.data);
 		setMyCollection([...response.data]);
 	} catch (e) {
-		console.log(e.response.data);
-		setErrorMessage(e.response.data);
+		console.log(e);
+		if (typeof e.response.data === "string") {
+			setErrorMessage(e.response.data);
+		} else if (typeof e.response.data.message === "string") {
+			setErrorMessage(e.response.data.message);
+		} else setErrorMessage(e.message);
 	}
 };
 
@@ -112,8 +129,12 @@ export const fetchMyCollection = async (myCollection, setMyCollection, setErrorM
 		console.log(response.data);
 		setMyCollection([...fetchedCollection]);
 	} catch (e) {
-		console.log(e.response.data);
-		setErrorMessage(e.response.data);
+		console.log(e);
+		if (typeof e.response.data === "string") {
+			setErrorMessage(e.response.data);
+		} else if (typeof e.response.data.message === "string") {
+			setErrorMessage(e.response.data.message);
+		} else setErrorMessage(e.message);
 	}
 };
 
@@ -131,8 +152,12 @@ export const releaseFromCollection = async (pokemonId, setMyCollection, setError
 		console.log(response.data);
 		setMyCollection([...fetchedCollection]);
 	} catch (e) {
-		console.log(e.response.data);
-		setErrorMessage(e.response.data);
+		console.log(e);
+		if (typeof e.response.data === "string") {
+			setErrorMessage(e.response.data);
+		} else if (typeof e.response.data.message === "string") {
+			setErrorMessage(e.response.data.message);
+		} else setErrorMessage(e.message);
 	}
 };
 
